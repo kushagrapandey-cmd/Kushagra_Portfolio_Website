@@ -1,0 +1,35 @@
+{
+  "name": "kushagra-pandey-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "validate:content": "node scripts/validate-content.mjs",
+    "validate:routes": "node scripts/validate-routes.mjs",
+    "validate:a11y": "node scripts/validate-accessibility.mjs",
+    "validate": "npm run validate:content && npm run validate:routes && npm run validate:a11y",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "next": "16.3.7",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "@playwright/test": "^1.50.0",
+    "@tailwindcss/postcss": "4.3.3",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "16.3.7",
+    "postcss": "^8.5.0",
+    "tailwindcss": "4.3.3",
+    "typescript": "^5.8.0"
+  }
+}
