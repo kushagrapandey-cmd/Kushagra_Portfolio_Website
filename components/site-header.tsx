@@ -22,27 +22,24 @@ function isActivePath(pathname: string, href: string) {
 
 export function SiteHeader() {
   const pathname = usePathname();
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuPath, setMenuPath] = useState<string | null>(null);
+  const menuOpen = menuPath === pathname;
   const menuRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
 
   useEffect(() => {
     if (!menuOpen) return;
 
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
-        setMenuOpen(false);
+        setMenuPath(null);
         menuButtonRef.current?.focus();
       }
     }
 
     function onPointerDown(event: PointerEvent) {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setMenuOpen(false);
+        setMenuPath(null);
       }
     }
 
@@ -88,7 +85,7 @@ export function SiteHeader() {
               type="button"
               aria-expanded={menuOpen}
               aria-controls="mobile-primary-navigation"
-              onClick={() => setMenuOpen((open) => !open)}
+              onClick={() => setMenuPath(menuOpen ? null : pathname)}
             >
               {menuOpen ? "Close" : "Menu"}
             </button>
@@ -99,11 +96,12 @@ export function SiteHeader() {
                     key={href}
                     href={href}
                     aria-current={isActivePath(pathname, href) ? "page" : undefined}
+                    onClick={() => setMenuPath(null)}
                   >
                     {label}
                   </Link>
                 ))}
-                <Link href="/resume" aria-current={pathname === "/resume" ? "page" : undefined}>Resume</Link>
+                <Link href="/resume" aria-current={pathname === "/resume" ? "page" : undefined} onClick={() => setMenuPath(null)}>Resume</Link>
                 <ExternalLink href={profile.github}>GitHub</ExternalLink>
               </nav>
             ) : null}
