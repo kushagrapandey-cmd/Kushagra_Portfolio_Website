@@ -4,6 +4,7 @@ import { StatusBadge } from "./status-badge";
 export function CareerTopology() {
   return (
     <div className="topology-card" aria-label="Career transition from software development toward cloud and DevOps engineering">
+      <h2 className="sr-only">Career progression</h2>
       <div className="topology-header">
         <span className="mono-label">CAREER TOPOLOGY</span>
         <span className="live-indicator">Evidence mapped</span>
