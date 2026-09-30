@@ -59,7 +59,6 @@ test("theme toggle changes and persists the selected theme", async ({ page }) =>
 
 test("skip link moves keyboard focus to the main content target", async ({ page }) => {
   await page.goto("/");
-  await page.locator("body").click({ position: { x: 1, y: 1 } });
   await page.keyboard.press("Tab");
   const skip = page.getByRole("link", { name: "Skip to content" });
   await expect(skip).toBeFocused();
@@ -70,9 +69,11 @@ test("skip link moves keyboard focus to the main content target", async ({ page 
 test("mobile navigation opens, closes with Escape and closes after navigation", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "mobile-chromium", "Mobile-only navigation test");
   await page.goto("/");
-  const menuButton = page.getByRole("button", { name: "Menu" });
+  const menuButton = page.locator(".menu-button");
+  await expect(menuButton).toHaveAccessibleName("Menu");
   await menuButton.click();
   await expect(menuButton).toHaveAttribute("aria-expanded", "true");
+  await expect(menuButton).toHaveAccessibleName("Close");
   await expect(page.getByRole("navigation", { name: "Mobile navigation" })).toBeVisible();
 
   await page.keyboard.press("Escape");
