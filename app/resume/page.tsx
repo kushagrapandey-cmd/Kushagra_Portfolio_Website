@@ -1,0 +1,45 @@
+import type { Metadata } from "next";
+import { PageHero } from "@/components/page-hero";
+import { StatusBadge } from "@/components/status-badge";
+import { certifications, education, experience, focusAreas, internship, profile, softwareFoundation } from "@/data/profile";
+import { projects } from "@/data/projects";
+
+export const metadata: Metadata = { title: "Resume" };
+
+export default function ResumePage() {
+  const role = experience[0];
+  return (
+    <main>
+      <PageHero
+        eyebrow="Resume view"
+        title={profile.name}
+        intro={`${profile.headline}. ${profile.direction}.`}
+        aside={<><p className="mono-label">PUBLIC WEB RESUME</p><p>Professional experience, certifications, education and selected engineering work.</p></>}
+      />
+      <section className="section-block resume-section">
+        <div className="shell resume-layout">
+          <aside className="resume-sidebar">
+            <div><p className="eyebrow">Contact</p><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗<span className="sr-only"> (opens in a new tab)</span></a><a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub ↗<span className="sr-only"> (opens in a new tab)</span></a></div>
+            <div><p className="eyebrow">Certifications</p>{certifications.map((cert) => <div className="resume-cert" key={cert.code}><strong>{cert.code}</strong><span>{cert.name}</span></div>)}</div>
+            <div><p className="eyebrow">Education</p>{education.map((item) => <div className="resume-education" key={item.qualification}><strong>{item.qualification}</strong><span>{item.institution}</span><small>{item.period}</small></div>)}</div>
+          </aside>
+          <div className="resume-main">
+            <section><p className="eyebrow">Profile</p><p className="resume-summary">{profile.summary}</p></section>
+            <section>
+              <p className="eyebrow">Skills by evidence</p>
+              <div className="resume-skill-grid top-gap">
+                <div><StatusBadge status="professional" /><h3>Professional</h3><p>{focusAreas.professional.join(" · ")}</p></div>
+                <div><StatusBadge status="certified" /><h3>Certified</h3><p>{focusAreas.certified.join(" · ")}</p></div>
+                <div><StatusBadge status="learning" /><h3>Developing</h3><p>{focusAreas.learning.join(" · ")}</p></div>
+                <div><StatusBadge status="project" /><h3>Software foundation</h3><p>{softwareFoundation.join(" · ")}</p></div>
+              </div>
+            </section>
+            <section><div className="resume-heading"><p className="eyebrow">Experience</p><StatusBadge status="professional" /></div><h2>{role.company} · {role.context}</h2><p className="mono-label">{role.period}</p><ul className="evidence-list">{role.responsibilities.map((item) => <li key={item}>{item}</li>)}</ul></section>
+            <section><div className="resume-heading"><p className="eyebrow">Selected projects</p><StatusBadge status="project" /></div>{projects.map((project) => <article className="resume-project" key={project.slug}><h3>{project.title}</h3><p>{project.summary}</p><small>{project.stack.join(" · ")}</small></article>)}</section>
+            <section><p className="eyebrow">Internship</p><h2>{internship.title} · {internship.organization}</h2><p className="mono-label">{internship.period}</p><ul className="evidence-list">{internship.details.map((item) => <li key={item}>{item}</li>)}</ul></section>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+}
