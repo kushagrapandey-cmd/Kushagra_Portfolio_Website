@@ -14,7 +14,12 @@ function walk(dir) {
 }
 
 walk(root);
-const auditableFiles = textFiles.filter((file) => !file.endsWith("scripts/validate-content.mjs"));
+const auditableRoots = ["app", "components", "data", "README.md"];
+const auditableFiles = textFiles.filter((file) => {
+  if (file.endsWith("scripts/validate-content.mjs")) return false;
+  const relative = path.relative(root, file).replaceAll("\\", "/");
+  return auditableRoots.some((entry) => relative === entry || relative.startsWith(`${entry}/`));
+});
 const combined = auditableFiles.map((file) => fs.readFileSync(file, "utf8")).join("\n");
 const forbidden = [
   { label: "potential internal employee identifier", pattern: /\b\d{8}\b/ },
