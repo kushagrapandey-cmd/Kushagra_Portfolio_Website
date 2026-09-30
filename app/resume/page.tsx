@@ -24,9 +24,10 @@ export default function ResumePage() {
             <div><p className="eyebrow">Education</p>{education.map((item) => <div className="resume-education" key={item.qualification}><strong>{item.qualification}</strong><span>{item.institution}</span><small>{item.period}</small></div>)}</div>
           </aside>
           <div className="resume-main">
-            <section><p className="eyebrow">Profile</p><p className="resume-summary">{profile.summary}</p></section>
+            <section><p className="eyebrow">Profile</p><h2 className="sr-only">Professional profile</h2><p className="resume-summary">{profile.summary}</p></section>
             <section>
-              <p className="eyebrow">Skills by evidence</p>
+              <p className="eyebrow">Skills</p>
+              <h2>Skills by evidence</h2>
               <div className="resume-skill-grid top-gap">
                 <div><StatusBadge status="professional" /><h3>Professional</h3><p>{focusAreas.professional.join(" · ")}</p></div>
                 <div><StatusBadge status="certified" /><h3>Certified</h3><p>{focusAreas.certified.join(" · ")}</p></div>
@@ -35,7 +36,7 @@ export default function ResumePage() {
               </div>
             </section>
             <section><div className="resume-heading"><p className="eyebrow">Experience</p><StatusBadge status="professional" /></div><h2>{role.company} · {role.context}</h2><p className="mono-label">{role.period}</p><ul className="evidence-list">{role.responsibilities.map((item) => <li key={item}>{item}</li>)}</ul></section>
-            <section><div className="resume-heading"><p className="eyebrow">Selected projects</p><StatusBadge status="project" /></div>{projects.map((project) => <article className="resume-project" key={project.slug}><h3>{project.title}</h3><p>{project.summary}</p><small>{project.stack.join(" · ")}</small></article>)}</section>
+            <section><div className="resume-heading"><div><p className="eyebrow">Projects</p><h2>Selected projects</h2></div><StatusBadge status="project" /></div>{projects.map((project) => <article className="resume-project" key={project.slug}><h3>{project.title}</h3><p>{project.summary}</p><small>{project.stack.join(" · ")}</small></article>)}</section>
             <section><p className="eyebrow">Internship</p><h2>{internship.title} · {internship.organization}</h2><p className="mono-label">{internship.period}</p><ul className="evidence-list">{internship.details.map((item) => <li key={item}>{item}</li>)}</ul></section>
           </div>
         </div>
