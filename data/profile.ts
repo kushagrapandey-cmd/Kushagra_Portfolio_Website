@@ -13,7 +13,9 @@ export const profile = {
   summary:
     "Enterprise L1 infrastructure experience in Windows Server troubleshooting, data-center monitoring, incident handling and basic AWS/Azure portal monitoring, backed by a software-development foundation and Microsoft Azure certifications.",
   github: "https://github.com/kushagrapandey-cmd",
-  linkedin: "https://www.linkedin.com/in/kushagra-pandey-353b71175",
+  linkedin: "https://www.linkedin.com/in/kushagra-pandey-353b17175",
+  email: "kushagrapandey102@gmail.com",
+  resumePdf: "/resume/Kushagra_Pandey_Resume.pdf",
 } as const;
 
 export const experience = [
@@ -23,12 +25,14 @@ export const experience = [
     period: "Dec 2024 – Present",
     label: "L1 infrastructure monitoring and troubleshooting",
     responsibilities: [
-      "Performed L1-level troubleshooting on Windows Servers, including basic diagnostics, service restarts and log analysis.",
-      "Monitored data-center operations and reported anomalies in server performance and network connectivity.",
-      "Conducted routine health checks on physical and virtual servers.",
-      "Used AWS and Azure portals for basic monitoring, including resource usage, logs and service-status checks.",
-      "Logged and escalated incidents through internal ticketing systems.",
-      "Participated in shift-based monitoring of infrastructure components.",
+      "Perform L1 troubleshooting on Windows Servers, including basic diagnostics, service checks/restarts and log analysis.",
+      "Monitor server, backup, network and storage alerts; identify abnormal conditions and route or escalate incidents to the appropriate support team.",
+      "Conduct routine health checks on physical and virtual infrastructure, including CPU, memory, disk, service status and connectivity observations.",
+      "Use AWS and Azure portals for basic monitoring, resource-usage review, logs and service-status verification.",
+      "Work with ticketing and monitoring workflows, including alert-driven incident creation, prioritization, chronology and SLA-aware handoff.",
+      "Supported operational go-live activities, team coordination and roster/process organization during early project stabilization.",
+      "Communicate critical-alert context and status updates to relevant teams and customer stakeholders as required by the support process.",
+      "Participate in shift-based 24x7 infrastructure monitoring and handovers to maintain continuous alert coverage.",
     ],
   },
 ] as const;
