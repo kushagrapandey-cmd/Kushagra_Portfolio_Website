@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Metadata } from "next";
 import { PageHero } from "@/components/page-hero";
 import { StatusBadge } from "@/components/status-badge";
@@ -14,10 +15,29 @@ export default function AboutPage() {
         intro="A career path from software-development projects into infrastructure operations, Azure certification and cloud-focused learning."
       />
       <section className="section-block">
-        <div className="shell story-grid">
-          <article><span className="story-number">01</span><StatusBadge status="project" /><h2>Software foundation</h2><p>Computer Science education and earlier projects built experience with React, Node.js, Express, MongoDB, Next.js and related application-development patterns.</p></article>
-          <article><span className="story-number">02</span><StatusBadge status="professional" /><h2>Infrastructure exposure</h2><p>Professional work shifted the focus toward monitoring, Windows Server troubleshooting, health checks, incident handling and basic cloud-portal monitoring.</p></article>
-          <article><span className="story-number">03</span><StatusBadge status="learning" /><h2>Cloud direction</h2><p>Azure certifications support a deliberate move toward deeper cloud administration, Linux, networking, automation and DevOps engineering.</p></article>
+        <div className="shell about-story-layout">
+          <figure className="about-portrait-card">
+            <div className="about-portrait-frame">
+              <Image
+                className="about-portrait-image"
+                src="/images/kushagra-formal.svg"
+                alt="Kushagra Pandey in formal college attire"
+                width={140}
+                height={273}
+                sizes="(max-width: 820px) 210px, 240px"
+              />
+            </div>
+            <figcaption>
+              <span className="mono-label">ENGINEERING JOURNEY</span>
+              <strong>From software projects to enterprise infrastructure.</strong>
+            </figcaption>
+          </figure>
+
+          <div className="story-grid about-story-grid">
+            <article><span className="story-number">01</span><StatusBadge status="project" /><h2>Software foundation</h2><p>Computer Science education and earlier projects built experience with React, Node.js, Express, MongoDB, Next.js and related application-development patterns.</p></article>
+            <article><span className="story-number">02</span><StatusBadge status="professional" /><h2>Infrastructure exposure</h2><p>Professional work shifted the focus toward monitoring, Windows Server troubleshooting, health checks, incident handling and basic cloud-portal monitoring.</p></article>
+            <article><span className="story-number">03</span><StatusBadge status="learning" /><h2>Cloud direction</h2><p>Azure certifications support a deliberate move toward deeper cloud administration, Linux, networking, automation and DevOps engineering.</p></article>
+          </div>
         </div>
       </section>
       <section className="section-block section-contrast">
