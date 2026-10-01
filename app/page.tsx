@@ -1,6 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 import { CareerTopology } from "@/components/career-topology";
 import { CertificationCard } from "@/components/certification-card";
+import { ContactForm } from "@/components/contact-form";
 import { ExternalLink } from "@/components/external-link";
 import { FocusGrid } from "@/components/focus-grid";
 import { OperationsFlow } from "@/components/operations-flow";
@@ -26,6 +28,7 @@ export default function HomePage() {
             <div className="hero-actions">
               <Link className="button button-primary" href="/experience">View experience</Link>
               <Link className="button button-quiet" href="/resume">Resume view</Link>
+              <a className="button button-quiet" href={profile.resumePdf} download>Download PDF</a>
             </div>
             <ul className="hero-proof" aria-label="Profile evidence summary">
               <li><span>01</span><strong>Professional</strong><small>Infrastructure support</small></li>
@@ -33,7 +36,27 @@ export default function HomePage() {
               <li><span>03</span><strong>Building</strong><small>Linux · Cloud · DevOps</small></li>
             </ul>
           </div>
-          <CareerTopology />
+          <div className="hero-visual-column">
+            <figure className="hero-portrait-card">
+              <div className="hero-portrait-frame">
+                <Image
+                  className="hero-portrait-image"
+                  src="/images/kushagra-headshot.svg"
+                  alt="Portrait of Kushagra Pandey"
+                  width={160}
+                  height={160}
+                  priority
+                  sizes="(max-width: 560px) 92px, 132px"
+                />
+              </div>
+              <figcaption>
+                <p className="mono-label">KUSHAGRA PANDEY</p>
+                <strong>Infrastructure support + Azure direction</strong>
+                <span>Software foundation, production operations experience and an evidence-first move into Cloud / DevOps.</span>
+              </figcaption>
+            </figure>
+            <CareerTopology />
+          </div>
         </div>
       </section>
 
@@ -151,17 +174,19 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="contact-section">
-        <div className="shell contact-grid">
-          <div>
+      <section id="contact" className="contact-section">
+        <div className="shell contact-form-grid">
+          <div className="contact-form-copy">
             <p className="eyebrow">07 / Contact</p>
-            <h2>Open to infrastructure, Azure, cloud and DevOps-aligned roles.</h2>
-            <p>The strongest fit is work where operational troubleshooting can grow into deeper cloud engineering and automation responsibility.</p>
+            <h2>Let&apos;s talk infrastructure, Azure, cloud or engineering work.</h2>
+            <p>Send a short message from this page. It is delivered to my personal inbox, and you can also reach me through LinkedIn or GitHub.</p>
+            <div className="contact-actions contact-actions-left">
+              <ExternalLink className="button button-primary" href={profile.linkedin}>LinkedIn</ExternalLink>
+              <ExternalLink className="button button-quiet" href={profile.github}>GitHub</ExternalLink>
+              <a className="button button-quiet" href={`mailto:${profile.email}`}>Email</a>
+            </div>
           </div>
-          <div className="contact-actions">
-            <ExternalLink className="button button-primary" href={profile.linkedin}>LinkedIn</ExternalLink>
-            <ExternalLink className="button button-quiet" href={profile.github}>GitHub</ExternalLink>
-          </div>
+          <ContactForm />
         </div>
       </section>
     </main>
