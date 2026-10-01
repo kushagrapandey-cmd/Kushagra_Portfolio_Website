@@ -14,12 +14,12 @@ export default function ResumePage() {
         eyebrow="Resume view"
         title={profile.name}
         intro={`${profile.headline}. ${profile.direction}.`}
-        aside={<><p className="mono-label">PUBLIC WEB RESUME</p><p>Professional experience, certifications, education and selected engineering work.</p></>}
+        aside={<><p className="mono-label">LATEST PDF</p><p>Two-page ATS-oriented resume aligned with this portfolio.</p><a className="button button-primary resume-download-action" href={profile.resumePdf} download>Download resume PDF</a></>}
       />
       <section className="section-block resume-section">
         <div className="shell resume-layout">
           <aside className="resume-sidebar">
-            <div><p className="eyebrow">Contact</p><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗<span className="sr-only"> (opens in a new tab)</span></a><a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub ↗<span className="sr-only"> (opens in a new tab)</span></a></div>
+            <div><p className="eyebrow">Contact</p><a href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn ↗<span className="sr-only"> (opens in a new tab)</span></a><a href={profile.github} target="_blank" rel="noopener noreferrer">GitHub ↗<span className="sr-only"> (opens in a new tab)</span></a><a href={`mailto:${profile.email}`}>Email</a><a href={profile.resumePdf} download>Download PDF ↓</a></div>
             <div><p className="eyebrow">Certifications</p>{certifications.map((cert) => <div className="resume-cert" key={cert.code}><strong>{cert.code}</strong><span>{cert.name}</span></div>)}</div>
             <div><p className="eyebrow">Education</p>{education.map((item) => <div className="resume-education" key={item.qualification}><strong>{item.qualification}</strong><span>{item.institution}</span><small>{item.period}</small></div>)}</div>
           </aside>
