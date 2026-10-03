@@ -142,7 +142,7 @@ test("contact form surfaces API failures without navigating away", async ({ page
   await page.getByLabel("Short message").fill("Testing the failure state.");
   await page.getByRole("button", { name: "Send message" }).click();
 
-  await expect(page.getByRole("alert")).toContainText("Email delivery is not configured yet");
+  await expect(page.locator(".form-status-error")).toContainText("Email delivery is not configured yet");
   await expect(page).toHaveURL(/\/$/);
 });
 
