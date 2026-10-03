@@ -54,7 +54,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <div className="scroll-progress" aria-hidden="true" />
         <a className="skip-link" href="#main-content">Skip to content</a>
         <SiteHeader />

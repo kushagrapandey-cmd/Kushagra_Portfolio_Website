@@ -240,6 +240,31 @@ body {
   text-align: right;
 }
 
+.form-status {
+  min-height: 1.35rem;
+  margin: -4px 0 0;
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+.form-status-idle {
+  visibility: hidden;
+}
+
+.form-status-success {
+  color: var(--verified);
+}
+
+.form-status-error {
+  color: var(--learning);
+}
+
+.contact-form button:disabled {
+  cursor: wait;
+  opacity: .68;
+  transform: none;
+}
+
 .form-honeypot {
   position: absolute !important;
   width: 1px !important;

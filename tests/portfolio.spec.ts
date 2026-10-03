@@ -99,6 +99,31 @@ test("external links expose safe new-tab behavior", async ({ page }) => {
   }
 });
 
+test("LinkedIn links use the current profile URL", async ({ page }) => {
+  await page.goto("/");
+  const links = page.locator('a[href="https://www.linkedin.com/in/kushagra-pandey-353b71175"]');
+  expect(await links.count()).toBeGreaterThan(0);
+});
+
+test("contact form submits with AJAX and stays on the portfolio", async ({ page }) => {
+  await page.route("https://formsubmit.co/ajax/kushagrapandey102@gmail.com", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({ success: true }),
+    });
+  });
+
+  await page.goto("/");
+  await page.getByLabel("Name").fill("Test Visitor");
+  await page.getByLabel("Email").fill("test@example.com");
+  await page.getByLabel("Short message").fill("Testing the contact form.");
+  await page.getByRole("button", { name: "Send message" }).click();
+
+  await expect(page.getByRole("status")).toContainText("Message sent successfully");
+  await expect(page).toHaveURL(/\/$/);
+});
+
 test("custom static 404 page is generated", async ({ page }) => {
   const response = await page.goto("/404.html");
   expect(response?.ok()).toBeTruthy();

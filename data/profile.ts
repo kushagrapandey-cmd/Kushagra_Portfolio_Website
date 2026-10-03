@@ -13,7 +13,7 @@ export const profile = {
   summary:
     "Enterprise L1 infrastructure experience in Windows Server troubleshooting, data-center monitoring, incident handling and basic AWS/Azure portal monitoring, backed by a software-development foundation and Microsoft Azure certifications.",
   github: "https://github.com/kushagrapandey-cmd",
-  linkedin: "https://www.linkedin.com/in/kushagra-pandey-353b17175",
+  linkedin: "https://www.linkedin.com/in/kushagra-pandey-353b71175",
   email: "kushagrapandey102@gmail.com",
   resumePdf: "/resume/Kushagra_Pandey_Resume.pdf",
 } as const;
