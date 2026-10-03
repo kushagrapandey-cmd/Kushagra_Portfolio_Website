@@ -130,7 +130,7 @@ export const linuxLearning = {
   status: "learning" as EvidenceStatus,
   summary:
     "A public learning tracker used to organize Linux command-line, permissions, process, monitoring, shell and networking topics.",
-  repo: "https://github.com/kushagrapandey-cmd/Linux-Learnings",
+  repo: "https://github.com/kushagrapandey-cmd/Devops-Learning",
   evidence: [
     "Repository created in August 2026 as a syllabus and progress tracker.",
     "Current public content is primarily a structured README rather than a finished infrastructure project.",
