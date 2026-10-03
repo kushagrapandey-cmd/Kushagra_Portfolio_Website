@@ -7,7 +7,7 @@ A Next.js/TypeScript engineering portfolio built around evidence and career cont
 - Next.js App Router
 - TypeScript
 - Tailwind CSS 4
-- Static export
+- Vercel-compatible serverless contact API
 - Playwright route and interaction tests
 - axe-core accessibility checks
 - GitHub Actions CI
@@ -18,6 +18,18 @@ A Next.js/TypeScript engineering portfolio built around evidence and career cont
 npm install
 npm run dev
 ```
+
+The contact form uses a server-side route and Resend. Create `.env.local` from `.env.example` and add a Resend API key to test real email delivery locally. The API key is server-only and must never be exposed in client code.
+
+## Contact form environment
+
+```bash
+RESEND_API_KEY=re_xxxxxxxxx
+CONTACT_TO_EMAIL=kushagrapandey102@gmail.com
+RESEND_FROM_EMAIL="Kushagra Portfolio <onboarding@resend.dev>"
+```
+
+For Vercel, add the same variables under the project's Environment Variables settings. Once a custom sending domain is verified in Resend, replace `RESEND_FROM_EMAIL` with an address on that domain.
 
 ## Quality checks
 
@@ -30,7 +42,7 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
-The browser suite covers every public route at desktop and mobile sizes, automated accessibility checks, navigation state, theme persistence, the mobile menu, keyboard skip navigation, external-link behavior, horizontal overflow and the custom static 404 page.
+The browser suite covers every public route at desktop and mobile sizes, automated accessibility checks, navigation state, theme persistence, the mobile menu, keyboard skip navigation, external-link behavior, horizontal overflow, LinkedIn URL correctness, contact-form success/error states and the custom 404 page.
 
 ## Content model
 
@@ -42,4 +54,4 @@ The browser suite covers every public route at desktop and mobile sizes, automat
 
 ## Deployment
 
-`next.config.ts` uses `output: "export"`, producing an `out/` directory suitable for static hosting. `staticwebapp.config.json` contains baseline security headers and 404 handling for Azure Static Web Apps when deployment is configured.
+The app is configured as a normal Next.js deployment so Vercel can run the `/api/contact` serverless route. Do not switch back to `output: "export"` unless the contact form is moved to another backend.

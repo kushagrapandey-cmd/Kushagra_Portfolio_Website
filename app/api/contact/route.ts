@@ -1,0 +1,123 @@
+import { NextResponse } from "next/server";
+
+export const runtime = "nodejs";
+
+const destinationEmail =
+  process.env.CONTACT_TO_EMAIL?.trim() || "kushagrapandey102@gmail.com";
+
+const fromEmail =
+  process.env.RESEND_FROM_EMAIL?.trim() || "Kushagra Portfolio <onboarding@resend.dev>";
+
+function isValidEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function clean(value: unknown, maxLength: number) {
+  return typeof value === "string" ? value.trim().slice(0, maxLength) : "";
+}
+
+export async function POST(request: Request) {
+  let body: Record<string, unknown>;
+
+  try {
+    body = (await request.json()) as Record<string, unknown>;
+  } catch {
+    return NextResponse.json(
+      { success: false, message: "Invalid form submission." },
+      { status: 400 },
+    );
+  }
+
+  const name = clean(body.name, 80);
+  const email = clean(body.email, 120);
+  const message = clean(body.message, 700);
+  const website = clean(body.website, 200);
+  const pageUrl = clean(body.pageUrl, 500);
+
+  // Honeypot: silently accept bot submissions without sending anything.
+  if (website) {
+    return NextResponse.json({ success: true });
+  }
+
+  if (!name || !email || !message || !isValidEmail(email)) {
+    return NextResponse.json(
+      { success: false, message: "Please enter a valid name, email and message." },
+      { status: 400 },
+    );
+  }
+
+  const apiKey = process.env.RESEND_API_KEY?.trim();
+
+  if (!apiKey) {
+    return NextResponse.json(
+      {
+        success: false,
+        message:
+          "Email delivery is not configured yet. Please use the email link for now.",
+      },
+      { status: 503 },
+    );
+  }
+
+  const emailBody = [
+    "New portfolio contact message",
+    "",
+    `Name: ${name}`,
+    `Email: ${email}`,
+    pageUrl ? `Page: ${pageUrl}` : "",
+    "",
+    "Message:",
+    message,
+  ]
+    .filter(Boolean)
+    .join("\n");
+
+  try {
+    const providerResponse = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: fromEmail,
+        to: [destinationEmail],
+        subject: `Portfolio message from ${name}`,
+        text: emailBody,
+        reply_to: email,
+      }),
+      cache: "no-store",
+    });
+
+    if (!providerResponse.ok) {
+      const providerError = await providerResponse.text();
+      console.error(
+        "Contact email provider rejected the request:",
+        providerResponse.status,
+        providerError,
+      );
+
+      return NextResponse.json(
+        {
+          success: false,
+          message:
+            "Email delivery is temporarily unavailable. Please use the email link instead.",
+        },
+        { status: 502 },
+      );
+    }
+
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    console.error("Contact email request failed:", error);
+
+    return NextResponse.json(
+      {
+        success: false,
+        message:
+          "Email delivery is temporarily unavailable. Please use the email link instead.",
+      },
+      { status: 502 },
+    );
+  }
+}

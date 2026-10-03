@@ -105,8 +105,8 @@ test("LinkedIn links use the current profile URL", async ({ page }) => {
   expect(await links.count()).toBeGreaterThan(0);
 });
 
-test("contact form submits with AJAX and stays on the portfolio", async ({ page }) => {
-  await page.route("https://formsubmit.co/ajax/kushagrapandey102@gmail.com", async (route) => {
+test("contact form submits through the portfolio API and stays on the page", async ({ page }) => {
+  await page.route("**/api/contact", async (route) => {
     await route.fulfill({
       status: 200,
       contentType: "application/json",
@@ -124,8 +124,30 @@ test("contact form submits with AJAX and stays on the portfolio", async ({ page 
   await expect(page).toHaveURL(/\/$/);
 });
 
-test("custom static 404 page is generated", async ({ page }) => {
-  const response = await page.goto("/404.html");
-  expect(response?.ok()).toBeTruthy();
+test("contact form surfaces API failures without navigating away", async ({ page }) => {
+  await page.route("**/api/contact", async (route) => {
+    await route.fulfill({
+      status: 503,
+      contentType: "application/json",
+      body: JSON.stringify({
+        success: false,
+        message: "Email delivery is not configured yet. Please use the email link for now.",
+      }),
+    });
+  });
+
+  await page.goto("/");
+  await page.getByLabel("Name").fill("Test Visitor");
+  await page.getByLabel("Email").fill("test@example.com");
+  await page.getByLabel("Short message").fill("Testing the failure state.");
+  await page.getByRole("button", { name: "Send message" }).click();
+
+  await expect(page.getByRole("alert")).toContainText("Email delivery is not configured yet");
+  await expect(page).toHaveURL(/\/$/);
+});
+
+test("custom 404 page handles unknown routes", async ({ page }) => {
+  const response = await page.goto("/definitely-not-a-real-route/");
+  expect(response?.status()).toBe(404);
   await expect(page.getByRole("heading", { level: 1, name: "This node is not in the topology." })).toBeVisible();
 });
