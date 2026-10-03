@@ -52,8 +52,9 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         success: false,
+        code: "EMAIL_NOT_CONFIGURED",
         message:
-          "Email delivery is not configured yet. Please use the email link for now.",
+          "Direct email delivery is not configured on the server yet.",
       },
       { status: 503 },
     );
@@ -100,8 +101,9 @@ export async function POST(request: Request) {
       return NextResponse.json(
         {
           success: false,
+          code: "EMAIL_PROVIDER_ERROR",
           message:
-            "Email delivery is temporarily unavailable. Please use the email link instead.",
+            "Email delivery is temporarily unavailable. Please try the email fallback.",
         },
         { status: 502 },
       );
@@ -114,8 +116,9 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         success: false,
+        code: "EMAIL_PROVIDER_UNREACHABLE",
         message:
-          "Email delivery is temporarily unavailable. Please use the email link instead.",
+          "Email delivery is temporarily unavailable. Please try the email fallback.",
       },
       { status: 502 },
     );
