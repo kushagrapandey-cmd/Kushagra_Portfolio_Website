@@ -1,9 +1,22 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
+import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import "./portfolio-enhancements.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
+});
 
 const description =
   "Portfolio of Kushagra Pandey: L1 infrastructure support experience, Azure certifications, active cloud/DevOps learning and earlier software-engineering projects.";
@@ -54,7 +67,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
-      <body suppressHydrationWarning>
+      <body className={`${spaceGrotesk.variable} ${jetBrainsMono.variable}`} suppressHydrationWarning>
         <div className="scroll-progress" aria-hidden="true" />
         <a className="skip-link" href="#main-content">Skip to content</a>
         <SiteHeader />
