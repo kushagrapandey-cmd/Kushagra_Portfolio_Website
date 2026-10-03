@@ -43,8 +43,8 @@ export default function HomePage() {
                   className="hero-portrait-image"
                   src="/images/kushagra-headshot.webp"
                   alt="Portrait of Kushagra Pandey"
-                  width={384}
-                  height={394}
+                  width={300}
+                  height={308}
                   priority
                   sizes="(max-width: 560px) 92px, 132px"
                 />
