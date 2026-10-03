@@ -41,10 +41,10 @@ export default function HomePage() {
               <div className="hero-portrait-frame">
                 <Image
                   className="hero-portrait-image"
-                  src="/images/kushagra-headshot.svg"
+                  src="/images/kushagra-headshot.webp"
                   alt="Portrait of Kushagra Pandey"
-                  width={160}
-                  height={160}
+                  width={300}
+                  height={308}
                   priority
                   sizes="(max-width: 560px) 92px, 132px"
                 />
