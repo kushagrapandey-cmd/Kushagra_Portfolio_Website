@@ -20,8 +20,9 @@
   --radius: 18px;
   --radius-sm: 12px;
   --shell: min(1280px, calc(100% - 48px));
-  --font-sans: Inter, Geist, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-mono: "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --font-sans: var(--font-space-grotesk), Inter, Geist, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: var(--font-space-grotesk), Inter, Geist, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), "JetBrains Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
 }
 
 @media (prefers-color-scheme: light) {
@@ -202,6 +203,8 @@ button { font: inherit; }
 .hero-grid { display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(440px, 0.98fr); gap: clamp(48px, 7vw, 96px); align-items: center; }
 .hero-copy h1 {
   margin: 18px 0 8px;
+  font-family: var(--font-display);
+  font-weight: 780;
   font-size: clamp(3.6rem, 6.7vw, 5.8rem);
   line-height: 0.96;
   letter-spacing: -0.065em;
@@ -241,7 +244,7 @@ button { font: inherit; }
 .section-contrast { background: color-mix(in srgb, var(--bg-elevated) 62%, var(--bg)); border-block: 1px solid var(--border); }
 .section-heading { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 34px 64px; margin-bottom: 46px; align-items: end; }
 .section-heading .eyebrow { grid-column: 1 / -1; }
-.section-heading h2, .contact-section h2, .medium-heading, .page-hero h1, .case-hero h1 { margin: 0; letter-spacing: -0.045em; line-height: 1.03; }
+.section-heading h2, .contact-section h2, .medium-heading, .page-hero h1, .case-hero h1 { margin: 0; font-family: var(--font-display); font-weight: 760; letter-spacing: -0.052em; line-height: 1.02; text-wrap: balance; }
 .section-heading h2 { font-size: clamp(2.4rem, 4.8vw, 4rem); max-width: 13ch; }
 .section-description { margin: 0; color: var(--muted); max-width: 720px; font-size: 1.02rem; }
 
