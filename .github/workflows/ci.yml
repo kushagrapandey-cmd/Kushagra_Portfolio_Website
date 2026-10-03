@@ -40,7 +40,7 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: Build static export
+      - name: Build Next.js application
         run: npm run build
 
       - name: Install Playwright browser

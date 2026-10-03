@@ -151,3 +151,115 @@ test("custom 404 page handles unknown routes", async ({ page }) => {
   expect(response?.status()).toBe(404);
   await expect(page.getByRole("heading", { level: 1, name: "This node is not in the topology." })).toBeVisible();
 });
+
+test("contact rejects blank content and preserves the visitor's draft", async ({ page }) => {
+  let submissions = 0;
+  await page.route("**/api/contact", async (route) => {
+    submissions += 1;
+    await route.fulfill({ json: { success: true } });
+  });
+  await page.goto("/");
+  await page.getByLabel("Name", { exact: true }).fill("   ");
+  await page.getByLabel("Email address").fill("visitor@example.com");
+  await page.getByLabel("Short message").fill("Keep this draft");
+  await page.getByRole("button", { name: "Send message" }).click();
+  await expect(page.locator(".contact-form").getByRole("alert")).toContainText("Please enter");
+  await expect(page.getByLabel("Short message")).toHaveValue("Keep this draft");
+  expect(submissions).toBe(0);
+});
+
+test("contact retries retain the draft and reuse the delivery identifier", async ({ page }) => {
+  const requests: Array<{ requestId: string; message: string }> = [];
+  await page.route("**/api/contact", async (route) => {
+    requests.push(route.request().postDataJSON());
+    await route.fulfill({ status: 502, json: { success: false, message: "Please try again." } });
+  });
+  await page.goto("/");
+  await page.getByLabel("Name", { exact: true }).fill("Test Visitor");
+  await page.getByLabel("Email address").fill("visitor@example.com");
+  await page.getByLabel("Short message").fill("Hello & thanks\nPlease reply.");
+  await page.getByRole("button", { name: "Send message" }).click();
+  await expect(page.locator(".contact-form").getByRole("alert")).toContainText("Please try again");
+  await expect(page.getByLabel("Short message")).toHaveValue("Hello & thanks\nPlease reply.");
+  const fallback = await page.getByRole("link", { name: "Open email app" }).getAttribute("href");
+  expect(new URL(fallback!).searchParams.get("body")).toContain("Hello & thanks\nPlease reply.");
+  await page.getByRole("button", { name: "Send message" }).click();
+  await expect.poll(() => requests.length).toBe(2);
+  expect(requests[0].requestId).toBe(requests[1].requestId);
+  await page.getByLabel("Short message").fill("A different message");
+  await page.getByRole("button", { name: "Send message" }).click();
+  await expect.poll(() => requests.length).toBe(3);
+  expect(requests[2].requestId).not.toBe(requests[0].requestId);
+});
+
+test("contact prevents duplicate submits and freezes fields until completion", async ({ page }) => {
+  let submissions = 0;
+  let complete!: () => void;
+  const pending = new Promise<void>((resolve) => { complete = resolve; });
+  await page.route("**/api/contact", async (route) => {
+    submissions += 1;
+    await pending;
+    await route.fulfill({ json: { success: true } });
+  });
+  await page.goto("/");
+  await page.getByLabel("Name", { exact: true }).fill("Test Visitor");
+  await page.getByLabel("Email address").fill("visitor@example.com");
+  await page.getByLabel("Short message").fill("One message");
+  await page.getByRole("button", { name: "Send message" }).click();
+  await expect(page.getByRole("button", { name: "Sending" })).toBeDisabled();
+  await expect(page.getByLabel("Short message")).toHaveAttribute("readonly", "");
+  await page.locator(".contact-form").evaluate((form) => {
+    form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+  });
+  complete();
+  await expect(page.getByRole("status")).toContainText("Message sent successfully");
+  expect(submissions).toBe(1);
+  await expect(page.getByLabel("Short message")).toHaveValue("");
+});
+
+test("resume PDF downloads as a real PDF", async ({ page, request }) => {
+  await page.goto("/resume/");
+  const link = page.getByRole("link", { name: "Download resume PDF" });
+  const href = await link.getAttribute("href");
+  const response = await request.get(href!);
+  expect(response.ok()).toBeTruthy();
+  expect((await response.body()).subarray(0, 5).toString()).toBe("%PDF-");
+  const downloading = page.waitForEvent("download");
+  await link.click();
+  expect((await downloading).suggestedFilename()).toBe("Kushagra_Pandey_Resume.pdf");
+});
+
+test("contact API rejects malformed and overlong submissions without crashing", async ({ request }) => {
+  for (const body of [null, [], "invalid", { name: "Visitor", email: "wrong", message: "Hi" }, { name: "Visitor", email: "test@example.com", message: "a".repeat(701) }]) {
+    const response = await request.post("/api/contact", { data: JSON.stringify(body), headers: { "Content-Type": "application/json" } });
+    expect(response.status()).toBe(400);
+    expect((await response.json()).success).toBe(false);
+  }
+});
+
+test("contact honeypot accepts bot input without delivering email", async ({ request }) => {
+  const response = await request.post("/api/contact", { data: { website: "a".repeat(250) } });
+  expect(response.status()).toBe(200);
+  expect((await response.json()).success).toBe(true);
+});
+
+test("theme still toggles when local storage is blocked", async ({ page }) => {
+  await page.addInitScript(() => {
+    Storage.prototype.setItem = () => { throw new DOMException("Blocked", "SecurityError"); };
+  });
+  await page.goto("/");
+  const initial = await page.locator("html").getAttribute("data-theme");
+  await page.getByRole("button", { name: "Toggle color theme" }).click();
+  await expect(page.locator("html")).toHaveAttribute("data-theme", initial === "light" ? "dark" : "light");
+});
+
+test("narrow phones keep the case study and resume inside the viewport", async ({ page }) => {
+  for (const width of [320, 360]) {
+    await page.setViewportSize({ width, height: 800 });
+    for (const path of ["/work/mediconnect/", "/resume/"]) {
+      await page.goto(path);
+      await page.evaluate(() => document.fonts.ready);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${path} at ${width}px`).toBe(true);
+    }
+  }
+});

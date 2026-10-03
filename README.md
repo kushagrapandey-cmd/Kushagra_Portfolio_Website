@@ -31,6 +31,8 @@ RESEND_FROM_EMAIL="Kushagra Portfolio <onboarding@resend.dev>"
 
 For Vercel, add the same variables under the project's Environment Variables settings. Once a custom sending domain is verified in Resend, replace `RESEND_FROM_EMAIL` with an address on that domain.
 
+The `onboarding@resend.dev` sender can only deliver to the email address associated with the Resend account. For this contact form, that account address must be `kushagrapandey102@gmail.com`; otherwise verify a sending domain and configure `RESEND_FROM_EMAIL`. Visitor addresses are used as reply-to, never as the sender or destination. After adding Production variables, redeploy and test the actual form, then confirm the email's delivery status in Resend. A passing CI run uses simulated delivery and does not confirm inbox delivery.
+
 ## Quality checks
 
 ```bash

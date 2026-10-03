@@ -414,7 +414,7 @@ html[data-theme="light"] .terminal-note { background: #101820; color: #eef6ff; }
 .resume-main { display: grid; gap: 62px; }
 .resume-main section { border-bottom: 1px solid var(--border); padding-bottom: 50px; }
 .resume-summary { margin: 18px 0 0; max-width: 800px; font-size: 1.2rem; color: var(--muted); }
-.resume-heading { display: flex; justify-content: space-between; gap: 20px; align-items: center; }
+.resume-heading { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; align-items: center; }
 .resume-main h2 { margin: 16px 0 4px; font-size: 1.65rem; }
 .resume-project { padding: 20px 0; border-bottom: 1px solid var(--border); }
 .resume-project h3 { margin: 0 0 6px; }
@@ -494,6 +494,8 @@ html[data-theme="light"] .terminal-note { background: #101820; color: #eef6ff; }
   .resume-skill-grid { grid-template-columns: 1fr; }
   .resume-sidebar > div:first-child { grid-column: auto; }
   .case-meta { align-items: flex-start; flex-direction: column; }
+  .case-hero-grid > * { min-width: 0; }
+  .case-hero h1 { font-size: clamp(2.25rem, 11vw, 3rem); overflow-wrap: anywhere; }
   .limitation-panel { margin-inline: -14px; padding-inline: 14px; }
 }
 

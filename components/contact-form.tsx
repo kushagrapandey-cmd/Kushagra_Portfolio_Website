@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 
 type SubmitState = "idle" | "submitting" | "success" | "error";
 
@@ -17,12 +17,16 @@ export function ContactForm() {
   const [statusMessage, setStatusMessage] = useState("");
   const [messageLength, setMessageLength] = useState(0);
   const [fallbackHref, setFallbackHref] = useState("");
+  const submitting = useRef(false);
+  const pendingRequest = useRef<{ contents: string; id: string } | null>(null);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (submitting.current) return;
     const form = event.currentTarget;
     const formData = new FormData(form);
 
+    submitting.current = true;
     setSubmitState("submitting");
     setStatusMessage("");
     setFallbackHref("");
@@ -43,13 +47,23 @@ export function ContactForm() {
       )}`;
 
     try {
+      if (!payload.name || !payload.email || !payload.message) {
+        setSubmitState("error");
+        setStatusMessage("Please enter your name, email address and a message.");
+        return;
+      }
+      const contents = JSON.stringify(payload);
+      if (pendingRequest.current?.contents !== contents) {
+        pendingRequest.current = { contents, id: crypto.randomUUID() };
+      }
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ ...payload, requestId: pendingRequest.current.id }),
+        signal: AbortSignal.timeout(20_000),
       });
 
       const result = (await response.json().catch(() => null)) as ContactResponse | null;
@@ -59,22 +73,25 @@ export function ContactForm() {
         setFallbackHref(mailtoFallback);
         setStatusMessage(
           result?.code === "EMAIL_NOT_CONFIGURED"
-            ? "Direct delivery needs one final server setting. You can still open a pre-filled email below."
+            ? "Message delivery is temporarily unavailable. Open a pre-filled email below to get in touch."
             : result?.message || "Message could not be sent right now.",
         );
         return;
       }
 
       form.reset();
+      pendingRequest.current = null;
       setMessageLength(0);
       setSubmitState("success");
-      setStatusMessage("Message sent successfully. It is now in my inbox.");
+      setStatusMessage("Message sent successfully. Thank you for getting in touch.");
     } catch {
       setSubmitState("error");
       setFallbackHref(mailtoFallback);
       setStatusMessage(
         "The contact service could not be reached. You can still open a pre-filled email below.",
       );
+    } finally {
+      submitting.current = false;
     }
   }
 
@@ -82,7 +99,7 @@ export function ContactForm() {
     <form className="contact-form" onSubmit={handleSubmit} aria-busy={submitState === "submitting"}>
       <div className="contact-form-head">
         <div>
-          <p className="contact-form-kicker">DIRECT MESSAGE / SECURE ROUTE</p>
+          <p className="contact-form-kicker">GET IN TOUCH</p>
           <h3>Send a note straight to my inbox.</h3>
         </div>
         <span className="contact-form-signal">
@@ -106,6 +123,7 @@ export function ContactForm() {
             type="text"
             autoComplete="name"
             maxLength={80}
+            readOnly={submitState === "submitting"}
             placeholder="Your name"
             required
           />
@@ -117,6 +135,7 @@ export function ContactForm() {
             type="email"
             autoComplete="email"
             maxLength={120}
+            readOnly={submitState === "submitting"}
             placeholder="you@example.com"
             required
           />
@@ -132,6 +151,7 @@ export function ContactForm() {
           name="message"
           rows={6}
           maxLength={700}
+          readOnly={submitState === "submitting"}
           placeholder="Role, project, collaboration or a quick hello..."
           onChange={(event) => setMessageLength(event.currentTarget.value.length)}
           required
@@ -148,7 +168,7 @@ export function ContactForm() {
           <span className="contact-submit-arrow" aria-hidden="true">↗</span>
         </button>
         <p className="delivery-note">
-          Server-side delivery to <strong>{destinationEmail}</strong>
+          Your message goes to <strong>{destinationEmail}</strong>
         </p>
       </div>
 

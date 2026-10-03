@@ -5,7 +5,11 @@ export function ThemeToggle() {
     const current = document.documentElement.dataset.theme === "light" ? "light" : "dark";
     const next = current === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = next;
-    window.localStorage.setItem("theme", next);
+    try {
+      window.localStorage.setItem("theme", next);
+    } catch {
+      // The selected theme still works when browser storage is unavailable.
+    }
   }
 
   return (
