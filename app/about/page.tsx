@@ -20,11 +20,11 @@ export default function AboutPage() {
             <div className="about-portrait-frame">
               <Image
                 className="about-portrait-image"
-                src="/images/kushagra-formal.svg"
-                alt="Kushagra Pandey in formal college attire"
-                width={140}
-                height={273}
-                sizes="(max-width: 820px) 210px, 240px"
+                src="/images/kushagra-formal.webp"
+                alt="Formal portrait of Kushagra Pandey"
+                width={600}
+                height={900}
+                sizes="(max-width: 820px) 210px, 260px"
               />
             </div>
             <figcaption>
