@@ -22,9 +22,9 @@ export default function AboutPage() {
                 className="about-portrait-image"
                 src="/images/kushagra-formal.webp"
                 alt="Formal portrait of Kushagra Pandey"
-                width={600}
-                height={900}
-                sizes="(max-width: 820px) 210px, 260px"
+                width={400}
+                height={600}
+                sizes="(max-width: 820px) 210px, 240px"
               />
             </div>
             <figcaption>
