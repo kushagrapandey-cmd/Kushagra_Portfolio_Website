@@ -9,7 +9,7 @@ const routes = [
   ["/work/mediconnect/", "MediConnect"],
   ["/work/riverflow/", "Riverflow"],
   ["/work/ytguide/", "YTGuide"],
-  ["/labs/linux-learning/", "Linux Learning Tracker"],
+  ["/labs/linux-learning/", "DevOps Learning Journey"],
   ["/about/", "Software foundation. Infrastructure reality. Cloud direction."],
   ["/resume/", "Kushagra Pandey"],
 ] as const;

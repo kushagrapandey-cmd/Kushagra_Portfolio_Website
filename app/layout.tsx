@@ -19,7 +19,7 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 const description =
-  "Portfolio of Kushagra Pandey: L1 infrastructure support experience, Azure certifications, active cloud/DevOps learning and earlier software-engineering projects.";
+  "Portfolio of Kushagra Pandey: L1.5 infrastructure support and ICC shift leadership, Azure certifications, active cloud/DevOps learning and earlier software-engineering projects.";
 
 export const metadata: Metadata = {
   title: {

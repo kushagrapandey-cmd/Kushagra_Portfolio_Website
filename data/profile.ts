@@ -11,7 +11,7 @@ export const profile = {
   headline: "Infrastructure Support Professional | Azure Certified",
   direction: "Building toward Cloud & DevOps Engineering",
   summary:
-    "Enterprise L1 infrastructure experience in Windows Server troubleshooting, data-center monitoring, incident handling and basic AWS/Azure portal monitoring, backed by a software-development foundation and Microsoft Azure certifications.",
+    "HCLTech infrastructure experience across Ericsson L1.5 support and Benchmark Electronics ICC shift leadership: Linux and Windows troubleshooting, AWS/Azure portal checks, incident coordination and operational go-live support, backed by Microsoft Azure certifications and a software-development foundation.",
   github: "https://github.com/kushagrapandey-cmd",
   linkedin: "https://www.linkedin.com/in/kushagra-pandey-353b71175",
   email: "kushagrapandey102@gmail.com",
@@ -21,18 +21,35 @@ export const profile = {
 export const experience = [
   {
     company: "HCLTech",
-    context: "Infrastructure / L1 Operations",
-    period: "Dec 2024 – Present",
-    label: "L1 infrastructure monitoring and troubleshooting",
+    project: "Benchmark Electronics",
+    context: "ICC · Shift Lead",
+    period: "Nov 2025 – Present",
+    label: "Infrastructure monitoring, operational readiness and shift coordination",
+    tools: ["SolarWinds", "Incident / ticketing workflows", "ICC technical-team groups"],
     responsibilities: [
-      "Perform L1 troubleshooting on Windows Servers, including basic diagnostics, service checks/restarts and log analysis.",
-      "Monitor server, backup, network and storage alerts; identify abnormal conditions and route or escalate incidents to the appropriate support team.",
-      "Conduct routine health checks on physical and virtual infrastructure, including CPU, memory, disk, service status and connectivity observations.",
-      "Use AWS and Azure portals for basic monitoring, resource-usage review, logs and service-status verification.",
-      "Work with ticketing and monitoring workflows, including alert-driven incident creation, prioritization, chronology and SLA-aware handoff.",
-      "Supported operational go-live activities, team coordination and roster/process organization during early project stabilization.",
-      "Communicate critical-alert context and status updates to relevant teams and customer stakeholders as required by the support process.",
-      "Participate in shift-based 24x7 infrastructure monitoring and handovers to maintain continuous alert coverage.",
+      "Supported the project through operational go-live and early stabilization, helping establish day-to-day ICC monitoring and coordination practices.",
+      "Lead shift coordination, organize coverage and handovers, and track critical alerts and pending incidents with the relevant technical teams.",
+      "Created project SOPs to document monitoring, incident handling, escalation and shift-handover procedures.",
+      "Created ICC communication groups to connect Windows, backup, network and storage teams and support timely incident updates and handoffs.",
+      "Monitor infrastructure alerts through SolarWinds and email-driven workflows; review ticket routing, priority and incident chronology.",
+      "Work with clients and customer stakeholders to understand monitoring requirements, clarify operational expectations and communicate critical-alert status.",
+      "Helped organize the roster and cross-team workflows during the initial months, supporting continuous coverage and consistent operational practices.",
+    ],
+  },
+  {
+    company: "HCLTech",
+    project: "Ericsson",
+    context: "Rhythm Team · L1.5 Infrastructure Support",
+    period: "Dec 2024 – Oct 2025",
+    label: "Linux, Windows and cloud-hosted server troubleshooting",
+    tools: ["BHOM portal", "AWS portal", "Azure portal", "PuTTY / SSH", "RDP", "SVM portal"],
+    responsibilities: [
+      "Provided L1.5 infrastructure support for Linux and Windows servers, including servers hosted in AWS and Azure environments.",
+      "Performed initial diagnostics using service-status checks, CPU, memory and disk observations, connectivity checks and log review; followed approved troubleshooting procedures before escalation.",
+      "Used PuTTY / SSH for Linux access and RDP for Windows access, alongside AWS and Azure portals for resource health and monitoring checks.",
+      "Reviewed infrastructure events through the BHOM portal and operational queues; recorded investigation findings and coordinated escalation to specialist teams.",
+      "Coordinated Multiple Failed Login (MFL) control work with two team members reporting to me for that activity, tracking follow-ups and communicating investigation status.",
+      "Maintained incident updates, prioritization and shift handovers to support continuity and SLA-aware troubleshooting.",
     ],
   },
 ] as const;
@@ -43,7 +60,7 @@ export const certifications = [
 ] as const;
 
 export const focusAreas = {
-  professional: ["Windows Server troubleshooting", "Infrastructure monitoring", "Incident logging & escalation", "Azure / AWS portal monitoring"],
+  professional: ["Linux / Windows L1.5 support", "Infrastructure monitoring", "Shift leadership & SOPs", "Azure / AWS portal troubleshooting"],
   certified: ["AZ-104", "AZ-900"],
   learning: ["Linux administration", "Networking fundamentals", "Azure administration practice", "Shell & automation foundations", "DevOps foundations"],
 } as const;
@@ -52,9 +69,9 @@ export const softwareFoundation = ["JavaScript", "React", "Node.js", "Express", 
 
 export const careerJourney = [
   { title: "Software Development", status: "project" as EvidenceStatus, detail: "Academic and personal full-stack development projects." },
-  { title: "Enterprise Infrastructure", status: "professional" as EvidenceStatus, detail: "L1 monitoring, Windows Server troubleshooting and incident handling at HCLTech." },
+  { title: "Enterprise Infrastructure", status: "professional" as EvidenceStatus, detail: "Ericsson L1.5 infrastructure support and Benchmark Electronics ICC shift leadership at HCLTech." },
   { title: "Azure", status: "certified" as EvidenceStatus, detail: "AZ-900 and AZ-104 certifications, with basic Azure portal monitoring exposure at work." },
-  { title: "Linux + Networking", status: "learning" as EvidenceStatus, detail: "Current learning direction documented through a Linux learning repository." },
+  { title: "Linux + Networking", status: "learning" as EvidenceStatus, detail: "Current learning direction documented in the Devops-Learning repository." },
   { title: "Cloud / DevOps Engineering", status: "planned" as EvidenceStatus, detail: "Career direction, supported by ongoing infrastructure, Linux, networking and automation learning." },
 ] as const;
 

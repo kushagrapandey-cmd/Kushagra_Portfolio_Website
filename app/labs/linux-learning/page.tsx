@@ -4,7 +4,7 @@ import { PageHero } from "@/components/page-hero";
 import { StatusBadge } from "@/components/status-badge";
 import { linuxLearning } from "@/data/projects";
 
-export const metadata: Metadata = { title: "Linux Learning Tracker" };
+export const metadata: Metadata = { title: "DevOps Learning Journey" };
 
 export default function LinuxLearningPage() {
   return (
@@ -31,9 +31,9 @@ export default function LinuxLearningPage() {
       </section>
       <section className="section-block section-contrast">
         <div className="shell boundary-panel">
-          <div><p className="eyebrow">Current scope</p><h2>Structured Linux learning tracker.</h2></div>
+          <div><p className="eyebrow">Current scope</p><h2>A growing DevOps learning workspace.</h2></div>
           <div>
-            <p>The repository currently demonstrates organized Linux learning and progress tracking. Docker, Terraform, Kubernetes and CI/CD will be represented separately when repository-backed projects exist for them.</p>
+            <p>The Devops-Learning README now covers Linux, networking, Azure, scripting and Git alongside a broader DevOps roadmap. Current practice and planned topics are distinguished; completed infrastructure projects will be added as repository-backed evidence becomes available.</p>
             <ExternalLink className="button button-primary top-button" href={linuxLearning.repo}>Open repository</ExternalLink>
           </div>
         </div>

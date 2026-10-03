@@ -1,125 +1,93 @@
 %PDF-1.4
-%
+%“Œ‹ž ReportLab Generated PDF document (opensource)
 1 0 obj
-<< /Type /Catalog /Pages 2 0 R >>
+<<
+/F1 2 0 R /F2 3 0 R
+>>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [5 0 R 7 0 R] /Count 2 >>
+<<
+/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+>>
 endobj
 3 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+<<
+/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+>>
 endobj
 4 0 obj
-<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+<<
+/Contents 9 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 8 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
 endobj
 5 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 6 0 R >>
+<<
+/Contents 10 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 8 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
 endobj
 6 0 obj
-<< /Length 5908 >>
-stream
-BT /F2 18.0 Tf 46.0 798.0 Td (KUSHAGRA PANDEY) Tj ET
-BT /F2 10.5 Tf 46.0 777.0 Td (Infrastructure Support Professional | Azure Certified | Building toward Cloud & DevOps Engineering) Tj ET
-BT /F1 8.0 Tf 46.0 762.0 Td (kushagrapandey102@gmail.com | linkedin.com/in/kushagra-pandey-353b17175 | github.com/kushagrapandey-cmd) Tj ET
-0.78 G 0.45 w 46 749.0 m 549 749.0 l S
-BT /F2 10.2 Tf 46.0 737.0 Td (PROFESSIONAL SUMMARY) Tj ET
-0.78 G 0.45 w 46 730.0 m 549 730.0 l S
-BT /F1 8.7 Tf 46.0 719.0 Td (Infrastructure Support Professional with enterprise L1 experience in Windows Server troubleshooting,) Tj ET
-BT /F1 8.7 Tf 46.0 708.0 Td (data-center monitoring, incident handling, health checks and basic AWS/Azure portal monitoring.) Tj ET
-BT /F1 8.7 Tf 46.0 697.0 Td (Microsoft Azure certified \(AZ-104, AZ-900\) with a software-development foundation in JavaScript,) Tj ET
-BT /F1 8.7 Tf 46.0 686.0 Td (React, Node.js and MongoDB. Building deeper capability in Linux, networking, automation,) Tj ET
-BT /F1 8.7 Tf 46.0 675.0 Td (infrastructure as code, containers, CI/CD and Kubernetes for Cloud / DevOps aligned roles.) Tj ET
-BT /F2 10.2 Tf 46.0 657.5 Td (TECHNICAL SKILLS) Tj ET
-0.78 G 0.45 w 46 650.5 m 549 650.5 l S
-BT /F1 8.7 Tf 46.0 639.5 Td (Cloud & Infrastructure: Microsoft Azure, AWS portal monitoring, Windows Server, virtual/physical) Tj ET
-BT /F1 8.7 Tf 46.0 628.5 Td (server health checks, resource monitoring, service status checks, log review.) Tj ET
-BT /F1 8.7 Tf 46.0 616.0 Td (Azure - Certified Knowledge: Virtual Machines, VNets, NSGs, Storage Accounts, Entra ID, RBAC, Azure) Tj ET
-BT /F1 8.7 Tf 46.0 605.0 Td (Monitor, Backup/Recovery, Resource Groups, Subscriptions, Azure CLI.) Tj ET
-BT /F1 8.7 Tf 46.0 592.5 Td (Linux & Networking - Developing: Linux administration, systemd, processes, permissions, logs, TCP/IP,) Tj ET
-BT /F1 8.7 Tf 46.0 581.5 Td (DNS, SSH, NAT, subnetting, routing/switching fundamentals.) Tj ET
-BT /F1 8.7 Tf 46.0 569.0 Td (DevOps - Currently Learning / Lab Track: Bash, Python automation, Terraform, Docker, CI/CD, GitHub) Tj ET
-BT /F1 8.7 Tf 46.0 558.0 Td (Actions, Azure DevOps, Kubernetes and AKS.) Tj ET
-BT /F1 8.7 Tf 46.0 545.5 Td (Software Development: JavaScript, React, Node.js, Express.js, MongoDB, SQL, REST APIs, Git, GitHub.) Tj ET
-BT /F2 10.2 Tf 46.0 528.0 Td (PROFESSIONAL EXPERIENCE) Tj ET
-0.78 G 0.45 w 46 521.0 m 549 521.0 l S
-BT /F2 8.9 Tf 46.0 510.0 Td (HCLTech | Ericsson Project - Infrastructure / L1 Operations | Dec 2024 - Present) Tj ET
-BT /F1 8.7 Tf 46.0 497.5 Td (- Perform L1 troubleshooting on Windows Servers, including basic diagnostics, service checks/restarts) Tj ET
-BT /F1 8.7 Tf 46.0 486.5 Td (  and log analysis.) Tj ET
-BT /F1 8.7 Tf 46.0 474.0 Td (- Monitor server, backup, network and storage alerts; identify abnormal conditions and route/escalate) Tj ET
-BT /F1 8.7 Tf 46.0 463.0 Td (  incidents to the appropriate support team.) Tj ET
-BT /F1 8.7 Tf 46.0 450.5 Td (- Conduct routine health checks on physical and virtual infrastructure, including CPU, memory, disk,) Tj ET
-BT /F1 8.7 Tf 46.0 439.5 Td (  service status and connectivity observations.) Tj ET
-BT /F1 8.7 Tf 46.0 427.0 Td (- Use AWS and Azure portals for basic monitoring, resource-usage review, logs and service-status) Tj ET
-BT /F1 8.7 Tf 46.0 416.0 Td (  verification.) Tj ET
-BT /F1 8.7 Tf 46.0 403.5 Td (- Work with ticketing and monitoring workflows, including alert-driven incident creation,) Tj ET
-BT /F1 8.7 Tf 46.0 392.5 Td (  prioritization, chronology and SLA-aware handoff.) Tj ET
-BT /F1 8.7 Tf 46.0 380.0 Td (- Supported operational go-live activities, team coordination and roster/process organization during) Tj ET
-BT /F1 8.7 Tf 46.0 369.0 Td (  early project stabilization.) Tj ET
-BT /F1 8.7 Tf 46.0 356.5 Td (- Communicate critical-alert context and status updates to relevant teams/customer stakeholders as) Tj ET
-BT /F1 8.7 Tf 46.0 345.5 Td (  required by the support process.) Tj ET
-BT /F1 8.7 Tf 46.0 333.0 Td (- Participate in shift-based 24x7 infrastructure monitoring and handovers to maintain continuous alert) Tj ET
-BT /F1 8.7 Tf 46.0 322.0 Td (  coverage.) Tj ET
-BT /F2 10.2 Tf 46.0 304.5 Td (CERTIFICATIONS) Tj ET
-0.78 G 0.45 w 46 297.5 m 549 297.5 l S
-BT /F2 8.9 Tf 46.0 286.5 Td (Microsoft Certified: Azure Administrator Associate \(AZ-104\)) Tj ET
-BT /F2 8.9 Tf 46.0 274.0 Td (Microsoft Azure Fundamentals \(AZ-900\)) Tj ET
-BT /F2 10.2 Tf 46.0 256.5 Td (SELECTED PROJECTS) Tj ET
-0.78 G 0.45 w 46 249.5 m 549 249.5 l S
-BT /F2 8.9 Tf 46.0 238.5 Td (MediConnect | React, Node.js, Express.js, MongoDB, Google Drive API) Tj ET
-BT /F1 8.7 Tf 46.0 226.0 Td (- Built a UHI-inspired healthcare-record prototype with patient/doctor flows, REST APIs,) Tj ET
-BT /F1 8.7 Tf 46.0 215.0 Td (  authentication, generated patient codes and record-management workflows.) Tj ET
-BT /F1 8.7 Tf 46.0 202.5 Td (- Implemented document upload/retrieval with MongoDB metadata and Google Drive-backed file storage.) Tj ET
-BT /F1 8.7 Tf 46.0 190.0 Td (- Structured React frontend and Express backend modules for medical-record access, dashboards and) Tj ET
-BT /F1 8.7 Tf 46.0 179.0 Td (  supporting patient features.) Tj ET
-BT /F2 8.9 Tf 46.0 162.5 Td (YTGuide | Python, Streamlit, recommendation logic) Tj ET
-BT /F1 8.7 Tf 46.0 150.0 Td (- Built an academic recommendation-system prototype that ranks study-video entries by topic and) Tj ET
-BT /F1 8.7 Tf 46.0 139.0 Td (  presents five focused recommendations.) Tj ET
-BT /F1 8.7 Tf 46.0 126.5 Td (- Worked with prepared data, similarity logic and a lightweight Streamlit interface.) Tj ET
-BT /F2 8.9 Tf 46.0 110.0 Td (iNotebook | MERN) Tj ET
-BT /F1 8.7 Tf 46.0 97.5 Td (- Built a notes application with user authentication and CRUD operations using React, Node.js, Express) Tj ET
-BT /F1 8.7 Tf 46.0 86.5 Td (  and MongoDB.) Tj ET
-BT /F2 8.9 Tf 46.0 70.0 Td (Kushagra Portfolio Website | Next.js, TypeScript) Tj ET
-endstream
+<<
+/PageMode /UseNone /Pages 8 0 R /Type /Catalog
+>>
 endobj
 7 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 8 0 R >>
+<<
+/Author (Kushagra Pandey) /CreationDate (D:20261003111112+03'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20261003111112+03'00') /Producer (ReportLab PDF Library - \(opensource\)) 
+  /Subject (\(unspecified\)) /Title (Kushagra Pandey - Resume) /Trapped /False
+>>
 endobj
 8 0 obj
-<< /Length 1580 >>
+<<
+/Count 2 /Kids [ 4 0 R 5 0 R ] /Type /Pages
+>>
+endobj
+9 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2370
+>>
 stream
-BT /F1 8.7 Tf 46.0 798.0 Td (- Built an evidence-based engineering portfolio separating professional experience, certifications,) Tj ET
-BT /F1 8.7 Tf 46.0 787.0 Td (  projects and currently-learning skills.) Tj ET
-BT /F2 10.2 Tf 46.0 769.5 Td (INTERNSHIP) Tj ET
-0.78 G 0.45 w 46 762.5 m 549 762.5 l S
-BT /F2 8.9 Tf 46.0 751.5 Td (Full-stack Web Development | Bharat Intern | Jul 2023 - Aug 2023) Tj ET
-BT /F1 8.7 Tf 46.0 739.0 Td (- Developed React-based web projects with a MongoDB-backed backend, responsive interfaces and) Tj ET
-BT /F1 8.7 Tf 46.0 728.0 Td (  user-authentication flows.) Tj ET
-BT /F2 10.2 Tf 46.0 710.5 Td (EDUCATION) Tj ET
-0.78 G 0.45 w 46 703.5 m 549 703.5 l S
-BT /F1 8.7 Tf 46.0 692.5 Td (Bachelor of Technology, Computer Science - Axis Institute of Technology | 2020 - 2024) Tj ET
-BT /F1 8.7 Tf 46.0 680.0 Td (Intermediate - K.R. Education Center | 2017 - 2018) Tj ET
-BT /F2 10.2 Tf 46.0 662.5 Td (CURRENT DEVELOPMENT DIRECTION) Tj ET
-0.78 G 0.45 w 46 655.5 m 549 655.5 l S
-BT /F1 8.7 Tf 46.0 644.5 Td (Hands-on Technical Development: Linux administration, networking fundamentals, Azure administration) Tj ET
-BT /F1 8.7 Tf 46.0 633.5 Td (practice, shell scripting, Python automation, Terraform, Docker, CI/CD, Kubernetes/AKS and) Tj ET
-BT /F1 8.7 Tf 46.0 622.5 Td (observability foundations.) Tj ET
-BT /F1 8.7 Tf 46.0 610.0 Td (Target Roles: Cloud Support / Cloud Operations, Azure Administrator, Junior Cloud Engineer, Junior) Tj ET
-BT /F1 8.7 Tf 46.0 599.0 Td (DevOps Engineer, Infrastructure / Platform Support roles with a path into automation.) Tj ET
-endstream
+Gau0D?$##F&q/YEd8)2=K`j^T+.JV_AT@'o5DWaS2cY,8dXW[12!dbbYiQt!1F!2/[Y8XWCR=jYB%5Y7:S7'[732;0qULX`50^$SAWbN>fn(cqFD,hjj4T4YqES=-R_A9lBb.hAgF(HiSRJEhVX(a_iIKueD6V/q4'h.*1lLVXf/sMUV=\H\,lucK1Yj;al(sflr@F;:7@2p%7R,6J&pZ`ZqTRM$X-<Z<R@eJ]r(+0/B_GBh;J![e#3MT5mo=P4g9PW=G('juhfm;\!$:tkDO@!/j'#tsrLVKYHWP\[FM:,&H=Zm[6"j*+3r"V?^J(gaIsJ]&alWKanK0W@^Z"q6W8"ElmH>L-)R1iQ]W7#3U-mCW[1Y6iM%g>`VLZRBJ74#^LrkT/3"$X1Z$W@]F611>gDh[b/DJ[_<OR%E(K>ZR(S>^h"[#pc-8qG(at3KfASIYcH,>reMFJsSrL+BbIGiaChpt$MP(e:n0+bEoZNLRk/0%S>"\MQ:X&bZg<i>heAaJs.oL011_CSof+5?2-An+:mH"%%Eh.lPW?0sJ+XbQ5so01C1oNVQ=;=.`]/Bm:'kFk2ZNuKhB%6F0$ho.VQL^q!)0.)_j=6&Q;k2H=1QDS$WmOfS#M:]*$PJjdh7G_hUXse7/4h@1=59t\K6h^6]3G+,oaRc6!Oa,"H1_g>Q>1f:01^,r4$-U3<P>=#q:r-$T=@kHH&Z$XXA/$aO?kT)5+*WOung+6>n,CIn5\s?8^3h!,1__,9\KDPmVsT*0aqC_i&"3H^[c"13".!KY$R(XH:PjgTQ@RH\)ceVG&b.`Z4DjIZcTN?QU%t#B\-bsG`PRXBPaAQqOm4<?V!auhQk?P[Mo7)GQ5:`@!klfo9MVM[5>0DiZqtHTO033phoYZ`Apcf]KD(qX,O0H`%N.*K*)FWLZR0>?Jb(N@lLb9Ee%Jj6ql[4X=UJOTmIpgm)L6t7D\H.@l'\E;;7Bq4UFFgk([>MF,sF+.U(iT%,NR;t!a.b9<(*<We--q4.R(9ij5?5tms]+H=$hW[");.QAB]sG$*pb_`Xo4MBN]TEmp/,obNNH`/>*BGC+8(g(8@1lp^9[3BDA\>?`b3bI-/Oa953P5H,RJ`'eKbqZr5:+FZn_u8:e6-11B*8`E>W/)37(K9W2QsT6X8;/*Wb`q^cS8+_T.d(Cl<[V'OS3Bp"KM0B(e3!+HBkQ3@73?IX10:jpUHmM#DZB.Ao%71bAD,??AC%C=KZPW%_M$LD7^,`C=/"&jAb+@V&!#kWj!lIK]"S/MAPaZN"EM?;7^$$96F+T,Kfg-/e"PuTe3q@ZH[nQp&iPXYh?HE,9mkib4#de'S;fn7aN]e?Qh=K9Zn]&Pn%-+kcb'r!@E7"nlhRhhtUOKViPYY:<s&J/DQg"/55Y*<cUj"ZJ#a6DAFPcrFB=LtET@W<Ti(lurVrEYPlis&i\Z`<T0?5:G]L*n4-./%1)<Bl[XCX+i7N"NK6X`u-P=HRINhD[ai@4DkO=Df'F\,3j[L&P'u:=kpVEF!fmA9-`c"sK[;:Fm3B)Eni?d'E0j;ep-Z,h]XH-P+1Gd)$#]I'KfSic2bK2"J!,N3MIbgZa?anQ.>RGr$1Oa#seO7`XlJQISFahC*?G+k7uuS[L!7a0_$2)""[KlAB2\b<M\Hp#M11)ut!B'9L@'!)lpM\rBn1HS4m]5VT5]43E*]/?DQ+N.N/E7e8h2\%APNgXdg=h6;b[M>>\`oDengo1Ge&cDc9A32J`lgFS:tVJpr97ci54GYLADLRnJ:q"!\GiN=0$oq9"u>T:1W1s'C:5Ho2i]l)6Xk=LT/^K::N")uT;ZuHR^6XPEHb9N.MjEUe)H[2>VR4R&N,V$rZM_6Y[W!X]`%3<+8U]Z*DlH,J^e?h+j1:>m(SLn4r&PfF@.nVMRhD0Z"C?Wsl.L]:;;96rK?o4="Bi3)`+gk3XA,8T&Y#Z?ZeZ/Hg?Rmuep)OC?G!a0k?LTbdNBeEWj/p\ff4p7,4K?pm5Kt(9B=1=)&N4FgSdVt[.3,DY[E](#6;pE4337$t'Idp.^l(Ud9Yn&&5*T#BocAc6Ep:=]8]\OM/a0.8'\G<6hfI'XrM.Z'k02d=I]_@62$GC:YEf*F1\8)Gj\1^953?AR\2?a(^+@:'"kSCpX,P_+eC[cj'@Cu%ZqJa_?/Qa@Y%?AN_IQX;kUqoO^5<b5@I@!%,*o2+5;2H-DZBW32`)s-/Wf)\^(K(%<D@N\(m7nT%hZcS'-[gtN4cH`>0!<"o7G[me;p:-dDK[l3&B%bI`Js+=mm1D:7ha?[*TmUrBWFqgj)$(n>C>V37[H:^[`)KTDeLS,b=*rN6Caa*#E=8HYI`i+"518@D4WRPTeM2IfL'GDJ]~>endstream
+endobj
+10 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 1970
+>>
+stream
+Gatm;_/e7#&A@6WqR#A?!eH#8+?']g-H7s%Pdln2+:Xu3dO6mrgMH!3pPf:m]82uq0i_7gUmZ\frVCZ[VD`mHq*.Q0c2qaOgLNA[/BN&eQ\$ZGK/_QXSltJcVqY4Pds#W39:"nSrO,(ZkBcNEO6"H"Yd\8W%QPO:;ED?>e=*KbUD_6!^7k!Pad/)=/W3FAOuI(D+"m1%%22T,e=mPi]?(dVZ/hU=7J8YD?RY\^$Ya7iF*gs6l(7>03!ZX8HaCc?UMeDaH9EAZ;`m$!ThV]CBm[k+f""/VD-UqE5ImL%s)Klcq@+@'kJ?5,1)pF\Rqj*:BChVej'gjfR/@c8Ve3X!JQ]&0FZl3F]6igdEHTFYV_Mscl,b._]?J2b0HOP*_toTI5daX`+$+1]XifO][Ir1TdX(-J9St,t$;kHX>FNQ7nUQSR``XST'hrO]<CNJeW>j1S8?'[>/S(BR)W\*^V5ApPLeG.9F2Z;;RAjJp>;Wk_adg52SMqp"MIM]e[2)*h&?FC,G1Z$Gh;#hr(/1c9Klc_FcLV^aEe1S/M0_g-(H5ET&lNKQY_!(lZQ]Z=@G1B.)DiP\i7^]6l\gEf',<rD28r]87m,7B0BC_rJl(!l5OEb%k^P`e-kMu+*'r;TLdc$J`Q/3="k0,[Xpl)X6-CI1=:0#D5F$Rk?`.-a'O&RPhKY2+=ffsoAV\6KZ4uFDZ\2hs-$ldrn$%"^^rg"[QWWO"#2G:5hU6aoa8AcR3LDehDua4&Lg+3dDu>\iYdcu#,$ToOR0gre/ft7dSF<o"Mfh1!VuMNEpo/kpg9fV<@J8W#dr)c/frI)s66U=&PReg6/n>t&YA_0&<rgTc[uUMK5N#tPrDWG$"l17r+k#B_UuskM*R)PgV;%U-]]d--b[0E-'p%@Ja>.ihj8X@Q%>kIs8iVf@I"r]c-FK0,QS%[uiE5:s3(rm)7%lHb3JEDgfKorT`m]@;f9E%PN(UK+&g:rX-s$ka;OHfIOXG`LV6!7kA^'UFZ7dIq\Rqd*AtJIfiR#^/Jq[QW6ji+`'sF_mbR_H+l8^CeK,fG+>2"Tk^R)3[UjXk[4ofpD8(W/h2plU?AdbQ:oEMQcl][a!?^BkH**,+)-3;Q+7\"[<-I-gH_kWP;L[-rR!^.U/:VjXE/ILI*D=lPh#[^6MdNh;db[e_.Mph!;Y7cO#K0U?1Ug]Dp3E'lKg3'#.8W@DQd$Rq&H;V802U+>A(=+lf>&;R!o/Nh4(D-Kc_&fLT9EIkL`8X9\qoE?iP<'DKhTI>4l?\u&if%q7=d=V2"fEOX#S`#*@)M&Y(o\L[0qjL]%6cPrdhS5-AlG,iLB@;[H&?iU.VMc/DqjVU[,22p6>Z@L*Nj\_[@WPP-a!>)E]k=j]UARP*=q;aPO!GbroV,rHMjbnGj!2-m<!\m#?EqJ+21Qfi:)a<FW]o*2UkKY@"j[X$O]@<IGO$M00`X/@2cO-o8$X/Vq]@s`RTFJ>j=(._]XnQ1%MDd,S>ZiX<tUbAc'km43]YHN2\[&]rLESV3l'I':OQSWoRkOV^?5R//egCZil;tPRJq;NIA[!PLa^&TZ^f\,n+d)-K7\5gaj4q8SetXMNA^r,T9+onu<70$5P'a=I^iR95lK-'5hK;$BL)8;i^W?cD?P$I:GMdrt).Vf)b`PIkdAAgA?a&oXIYd(J+\M7g#Dg^7ak(?8g7#FLGcu\+#rA>0Lsc^.:0C[.1udUd;7P@k-q^Oh!-)K6EgV2S42]M!1YFK>sZY)m]%@llMOVSM(g_'G\b=9K>aI]!1Ms]:N>8Z=olAmGUQT4"ni65E#CSA;BPMmKtZ;=9C\t53($sr7'%X[JSf&,27A7TpkK:15^]k1MiR9LiNPW5_TA(>\>5mX%e5$W3ubFP948R$VdN@4N%Tf;``KSnoOsTK6hAG&JqnlYLe1slS$AP@PUE*J^I,+DUB;9:aL&$c/TFqh(?Iq]k:a:c2YUHnkK~>endstream
 endobj
 xref
-0 9
+0 11
 0000000000 65535 f 
-0000000011 00000 n 
-0000000060 00000 n 
-0000000123 00000 n 
-0000000193 00000 n 
-0000000268 00000 n 
-0000000404 00000 n 
-0000006364 00000 n 
-0000006500 00000 n 
+0000000061 00000 n 
+0000000102 00000 n 
+0000000209 00000 n 
+0000000321 00000 n 
+0000000524 00000 n 
+0000000728 00000 n 
+0000000796 00000 n 
+0000001089 00000 n 
+0000001154 00000 n 
+0000003615 00000 n 
 trailer
-<< /Size 9 /Root 1 0 R >>
+<<
+/ID 
+[<dda3cd90205dfe2703e4feee55fc1e56><dda3cd90205dfe2703e4feee55fc1e56>]
+% ReportLab generated PDF document -- digest (opensource)
+
+/Info 7 0 R
+/Root 6 0 R
+/Size 11
+>>
 startxref
-8132
+5677
 %%EOF

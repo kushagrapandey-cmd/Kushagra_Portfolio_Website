@@ -125,22 +125,23 @@ export const projects: readonly Project[] = [
 ] as const;
 
 export const linuxLearning = {
-  title: "Linux Learning Tracker",
+  title: "DevOps Learning Journey",
   eyebrow: "ACTIVE LEARNING",
   status: "learning" as EvidenceStatus,
   summary:
-    "A public learning tracker used to organize Linux command-line, permissions, process, monitoring, shell and networking topics.",
+    "Devops-Learning is my public workspace for notes, scripts, labs and troubleshooting practice across Linux, networking, Azure and automation, with a roadmap toward practical DevOps engineering.",
   repo: "https://github.com/kushagrapandey-cmd/Devops-Learning",
   evidence: [
-    "Repository created in August 2026 as a syllabus and progress tracker.",
-    "Current public content is primarily a structured README rather than a finished infrastructure project.",
-    "The repository explicitly records Linux as an active learning journey.",
+    "The README documents a learning path from Linux and networking through Azure, Bash/Python, Git and DevOps tooling.",
+    "The repository organizes scripts, study material, labs, cheatsheets, projects and external resources.",
+    "Docker, Terraform, CI/CD, Kubernetes / AKS and observability are roadmap topics; a topic appearing here does not imply a completed production project.",
   ],
   topics: [
-    "Filesystem and command-line foundations",
-    "Users, permissions and ownership",
-    "Processes and system monitoring",
-    "Networking and package management",
-    "Shell scripting foundations",
+    "Linux administration and troubleshooting",
+    "Networking, ports, DNS and connectivity",
+    "Cloud and Azure administration study",
+    "Bash and Python automation practice",
+    "Git and GitHub workflows",
+    "Roadmap: Docker, Terraform, CI/CD, Kubernetes / AKS and observability",
   ],
 } as const;

@@ -2,6 +2,25 @@
 
 A Next.js/TypeScript engineering portfolio built around evidence and career context. Professional infrastructure experience, Azure certifications, current cloud/DevOps learning and earlier software-engineering projects are intentionally presented as separate evidence categories.
 
+## Live portfolio
+
+https://kushagra-portfolio-plum.vercel.app/
+
+## HCLTech project timeline
+
+| Period | Assignment | Focus |
+| --- | --- | --- |
+| Dec 2024 – Oct 2025 | Ericsson · Rhythm Team · L1.5 Infrastructure Support | Linux / Windows server troubleshooting, AWS / Azure portal checks, BHOM, PuTTY / SSH, RDP, incident escalation and MFL control coordination with two team members. |
+| Nov 2025 – Present | Benchmark Electronics · ICC · Shift Lead | Operational go-live support, SOP creation, shift coverage and handovers, ICC technical-team communication groups, alert / ticket coordination and customer interaction. |
+
+Assignment details are maintained centrally in `data/profile.ts` and shown on the homepage, Experience page and online resume.
+
+## DevOps learning evidence
+
+The portfolio links to [Devops-Learning](https://github.com/kushagrapandey-cmd/Devops-Learning), the renamed and expanded learning workspace. Its README covers Linux administration, networking, Azure, Bash/Python automation and Git, followed by a roadmap toward Docker, Terraform, CI/CD, Kubernetes / AKS and observability.
+
+The learning page reflects its scripts, study material, labs, cheatsheets, projects and resources structure. Roadmap topics are presented as planned study, not completed production work. The existing `/labs/linux-learning/` URL is retained so shared links continue to work.
+
 ## Stack
 
 - Next.js App Router

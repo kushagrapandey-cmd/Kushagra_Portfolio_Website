@@ -7,7 +7,6 @@ import { projects } from "@/data/projects";
 export const metadata: Metadata = { title: "Resume" };
 
 export default function ResumePage() {
-  const role = experience[0];
   return (
     <main>
       <PageHero
@@ -35,7 +34,7 @@ export default function ResumePage() {
                 <div><StatusBadge status="project" /><h3>Software foundation</h3><p>{softwareFoundation.join(" · ")}</p></div>
               </div>
             </section>
-            <section><div className="resume-heading"><p className="eyebrow">Experience</p><StatusBadge status="professional" /></div><h2>{role.company} · {role.context}</h2><p className="mono-label">{role.period}</p><ul className="evidence-list">{role.responsibilities.map((item) => <li key={item}>{item}</li>)}</ul></section>
+            {experience.map((role) => <section key={role.project}><div className="resume-heading"><p className="eyebrow">HCLTech · {role.period}</p><StatusBadge status="professional" /></div><h2>{role.project}</h2><p className="project-context">{role.context}</p><p className="mono-label">{role.tools.join(" · ")}</p><ul className="evidence-list">{role.responsibilities.map((item) => <li key={item}>{item}</li>)}</ul></section>)}
             <section><div className="resume-heading"><div><p className="eyebrow">Projects</p><h2>Selected projects</h2></div><StatusBadge status="project" /></div>{projects.map((project) => <article className="resume-project" key={project.slug}><h3>{project.title}</h3><p>{project.summary}</p><small>{project.stack.join(" · ")}</small></article>)}</section>
             <section><p className="eyebrow">Internship</p><h2>{internship.title} · {internship.organization}</h2><p className="mono-label">{internship.period}</p><ul className="evidence-list">{internship.details.map((item) => <li key={item}>{item}</li>)}</ul></section>
           </div>

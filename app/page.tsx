@@ -76,15 +76,15 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="02 / Professional experience"
             title="Operating in production environments."
-            description="Current experience is centered on L1 infrastructure monitoring, Windows Server troubleshooting and incident handling."
+            description="HCLTech experience spans Ericsson Rhythm Team L1.5 support and Benchmark Electronics ICC shift leadership."
           />
           <div className="experience-feature">
             <div className="experience-copy">
               <div className="experience-heading-row">
                 <div>
                   <p className="mono-label">{role.period}</p>
-                  <h3>{role.company}</h3>
-                  <p className="project-context">{role.context}</p>
+                  <h3>{role.project}</h3>
+                  <p className="project-context">{role.company} · {role.context}</p>
                 </div>
                 <StatusBadge status="professional" />
               </div>
@@ -92,6 +92,7 @@ export default function HomePage() {
               <ul className="evidence-list compact-list">
                 {role.responsibilities.slice(0, 4).map((item) => <li key={item}>{item}</li>)}
               </ul>
+              <p className="project-context">Previously: Ericsson · Dec 2024 – Oct 2025 · Rhythm Team L1.5 support and MFL coordination.</p>
               <Link className="text-link" href="/experience">Full experience breakdown <span aria-hidden="true">→</span></Link>
             </div>
             <div className="operations-panel">
@@ -141,7 +142,7 @@ export default function HomePage() {
           <SectionHeading
             eyebrow="05 / Active learning"
             title="Current infrastructure learning."
-            description="The public Linux track covers command-line work, permissions, processes, monitoring, networking and shell foundations."
+            description="Devops-Learning documents Linux and networking foundations, Azure study and scripting practice, with a roadmap toward containers, infrastructure as code and delivery pipelines."
           />
           <article className="lab-feature">
             <div>
