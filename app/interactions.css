@@ -1,0 +1,53 @@
+/* Native scrolling stays familiar on mouse, touch, and keyboard. */
+html { scroll-padding-top: 110px; }
+.interaction-layer { position: fixed; inset: 0; pointer-events: none; z-index: 90; overflow: hidden; }
+.cursor-spark, .click-orbit { position: absolute; pointer-events: none; border-radius: 50%; }
+.cursor-spark { width: 7px; height: 7px; background: var(--cyan); box-shadow: 0 0 12px var(--azure); }
+.click-orbit { width: 22px; height: 22px; border: 1px solid var(--azure); box-shadow: 0 0 14px color-mix(in srgb, var(--azure) 24%, transparent); }
+.experience-controls { display: flex; gap: 8px; justify-content: center; padding: 8px 24px 28px; background: var(--bg); }
+.experience-controls button { border: 1px solid var(--border); background: var(--surface-soft); color: var(--muted); padding: 8px 14px; border-radius: 30px; cursor: pointer; font-family: var(--font-mono); font-size: .72rem; }
+.experience-controls button[aria-pressed="true"] { color: var(--text); border-color: var(--azure); }
+.quick-intro { margin: 24px 0; max-width: 620px; border: 1px solid var(--border); border-radius: 14px; background: linear-gradient(115deg, color-mix(in srgb, var(--azure) 7%, var(--bg-elevated)), var(--bg-elevated)); }
+.quick-intro summary { list-style: none; display: flex; align-items: center; gap: 10px; padding: 15px 18px; cursor: pointer; font-size: .88rem; font-weight: 650; }
+.quick-intro summary::-webkit-details-marker { display: none; }
+.quick-intro summary:focus-visible { outline: 3px solid var(--azure); outline-offset: 4px; border-radius: 14px; }
+.intro-indicator { flex: 0 0 7px; width: 7px; height: 7px; border-radius: 50%; background: var(--verified); box-shadow: 0 0 0 5px color-mix(in srgb, var(--verified) 10%, transparent); }
+.intro-duration { margin-left: auto; color: var(--muted); font-size: .66rem; font-family: var(--font-mono); }
+.intro-body { padding: 0 18px 18px; color: var(--muted); font-size: .9rem; }
+.intro-body p { margin: 0 0 12px; }
+.project-rail-shell { min-width: 0; }
+.rail-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+.rail-toolbar p { color: var(--text); margin: 0; font-size: .9rem; }
+.rail-toolbar small { display: block; color: var(--muted); font-size: .75rem; }
+.rail-buttons { display: flex; gap: 8px; }
+.rail-buttons button { min-width: 44px; min-height: 44px; cursor: pointer; }
+.project-rail { position: relative; display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: thin; scrollbar-color: var(--azure) var(--surface); padding: 8px 4px 24px; border-radius: 14px; }
+.project-rail > .project-card { flex: 0 0 min(75%, 540px); min-width: 0; scroll-snap-align: start; display: flex; flex-direction: column; }
+.project-rail .card-actions { margin-top: auto; padding-top: 20px; }
+.project-rail:focus-visible { outline: 2px solid var(--azure); outline-offset: 4px; }
+@media (prefers-reduced-motion: no-preference) {
+  .button, .project-card, .cert-card { transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease; }
+  .button:active { transform: scale(.97); }
+  .quick-intro[open] .intro-body { animation: intro-open 280ms ease both; }
+  @supports (animation-timeline: scroll()) {
+    .scroll-progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 110; background: linear-gradient(90deg, var(--azure), var(--cyan)); transform-origin: left; animation: reading-progress linear both; animation-timeline: scroll(root); }
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .project-card:hover { transform: translateY(-5px); border-color: var(--azure); box-shadow: 0 16px 45px color-mix(in srgb, var(--azure) 10%, transparent); }
+  }
+}
+@keyframes intro-open { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes reading-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@media (max-width: 560px) {
+  .project-rail > .project-card { flex-basis: 90%; padding: 22px; }
+  .intro-duration { font-size: .59rem; }
+  .quick-intro summary { padding: 14px 12px; font-size: .8rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .interaction-layer, .scroll-progress { display: none; }
+  .project-rail { scroll-behavior: auto; }
+}
+/* Keep preferences within reach while exploring the page. */
+.experience-controls { position: fixed; right: 18px; bottom: 16px; z-index: 80; padding: 6px; border: 1px solid var(--border); border-radius: 30px; box-shadow: var(--shadow); }
+body { padding-bottom: 76px; }
+@media print { .experience-controls, .interaction-layer, .scroll-progress { display: none; } body { padding-bottom: 0; } }

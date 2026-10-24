@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { ProjectRail } from "@/components/project-rail";
+import { QuickIntro } from "@/components/quick-intro";
 import Link from "next/link";
 import { CareerTopology } from "@/components/career-topology";
 import { CertificationCard } from "@/components/certification-card";
@@ -25,6 +27,7 @@ export default function HomePage() {
             <p className="hero-role">{profile.headline}</p>
             <p className="hero-direction">{profile.direction}</p>
             <p className="hero-summary">{profile.summary}</p>
+            <QuickIntro />
             <div className="hero-actions">
               <Link className="button button-primary" href="/experience">View experience</Link>
               <Link className="button button-quiet" href="/resume">Resume view</Link>
@@ -168,9 +171,9 @@ export default function HomePage() {
             title="Software engineering foundation."
             description="Earlier software projects show application-development experience while current cloud and infrastructure learning remains clearly separated."
           />
-          <div className="project-grid">
-            {projects.map((project, index) => <ProjectCard key={project.slug} project={project} featured={index === 0} />)}
-          </div>
+          <ProjectRail>
+            {projects.map((project) => <ProjectCard key={project.slug} project={project} />)}
+          </ProjectRail>
           <div className="section-action"><Link className="button button-quiet" href="/work">View engineering work archive</Link></div>
         </div>
       </section>

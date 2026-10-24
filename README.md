@@ -76,3 +76,12 @@ The browser suite covers every public route at desktop and mobile sizes, automat
 ## Deployment
 
 The app is configured as a normal Next.js deployment so Vercel can run the `/api/contact` serverless route. Do not switch back to `output: "export"` unless the contact form is moved to another backend.
+
+### Portfolio interactions
+
+- Native smooth anchor scrolling, a reading-progress line, section motion and hover feedback respect the visitor's reduced-motion preference.
+- The home project showcase supports horizontal touch/trackpad scrolling, keyboard focus and previous/next buttons. Vertical page scrolling is never intercepted.
+- A short, keyboard-accessible introduction expands below the hero summary.
+- Cursor sparks run only for fine mouse pointers; click ripples are finite and capped at 24 particles. The floating Effects switch disables both, and reduced motion suppresses them automatically.
+- Sound starts off on every page load. Visitors can opt into quiet synthesized click tones using the floating Sound switch; no audio files, tracking, or extra animation packages are loaded.
+- Interaction regression coverage is in `tests/interactions.spec.ts` for desktop and mobile Chromium.

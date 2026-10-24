@@ -3,6 +3,8 @@ import type { ReactNode } from "react";
 import { JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import "./portfolio-enhancements.css";
+import "./interactions.css";
+import { PortfolioEffects } from "@/components/portfolio-effects";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
@@ -73,6 +75,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         <SiteHeader />
         <div id="main-content" className="main-content" tabIndex={-1}>{children}</div>
         <SiteFooter />
+        <PortfolioEffects />
       </body>
     </html>
   );
