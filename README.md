@@ -1,6 +1,6 @@
 # Kushagra Pandey Portfolio
 
-A Next.js/TypeScript engineering portfolio built around evidence and career context. Professional infrastructure experience, Azure certifications, current cloud/DevOps learning and earlier software-engineering projects are intentionally presented as separate evidence categories.
+A Next.js/TypeScript engineering portfolio built around evidence and career context. It presents enterprise infrastructure experience, Azure certifications and software projects through experience pages, project case studies and an online resume.
 
 ## Live portfolio
 
@@ -15,11 +15,11 @@ https://kushagra-portfolio-plum.vercel.app/
 
 Assignment details are maintained centrally in `data/profile.ts` and shown on the homepage, Experience page and online resume.
 
-## DevOps learning evidence
+## Repository evidence
 
-The portfolio links to [Devops-Learning](https://github.com/kushagrapandey-cmd/Devops-Learning), the renamed and expanded learning workspace. Its README covers Linux administration, networking, Azure, Bash/Python automation and Git, followed by a roadmap toward Docker, Terraform, CI/CD, Kubernetes / AKS and observability.
+The linked [Devops-Learning](https://github.com/kushagrapandey-cmd/Devops-Learning) repository contains a Bash fundamentals example and topic-folder indexes. Its folders are not evidence of completed Azure infrastructure, Terraform or Kubernetes deployments. The existing `/labs/linux-learning/` route is retained for shared links.
 
-The learning page reflects its scripts, study material, labs, cheatsheets, projects and resources structure. Roadmap topics are presented as planned study, not completed production work. The existing `/labs/linux-learning/` URL is retained so shared links continue to work.
+The application showcase includes [MediConnect](https://github.com/kushagrapandey-cmd/mediconnect), [YTGuide](https://github.com/kushagrapandey-cmd/First_ML_project) and [WWW-of-Anime](https://github.com/kushagrapandey-cmd/WWW-of-Anime). Read each repository's current architecture and verification notes for its implemented scope.
 
 ## Stack
 
@@ -70,7 +70,7 @@ The browser suite covers every public route at desktop and mobile sizes, automat
 - `Professional` means used in documented work.
 - `Certified` represents supplied certifications.
 - `Project experience` is backed by public project repositories.
-- `Currently learning` is presented as active development, not proficiency.
+- Topic indexes alone do not establish implemented project experience.
 - Unsupported metrics and stronger-than-evidence claims are excluded.
 
 ## Deployment
