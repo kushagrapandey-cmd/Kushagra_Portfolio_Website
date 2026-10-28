@@ -17,7 +17,7 @@ Assignment details are maintained centrally in `data/profile.ts` and shown on th
 
 ## Repository evidence
 
-The linked [Devops-Learning](https://github.com/kushagrapandey-cmd/Devops-Learning) repository contains a Bash fundamentals example and topic-folder indexes. Its folders are not evidence of completed Azure infrastructure, Terraform or Kubernetes deployments. The existing `/labs/linux-learning/` route is retained for shared links.
+The linked [Devops-Learning](https://github.com/kushagrapandey-cmd/Devops-Learning) repository includes CloudOps Sentinel: Linux diagnostics, a Python health API, Docker/Kubernetes configuration, GitHub Actions recovery drills and a Linux VM workbench. The public demo is a simulation; kind CI evidence is distinct from optional, unverified Azure deployment scripts. The existing `/labs/linux-learning/` route is retained for shared links.
 
 The application showcase includes [MediConnect](https://github.com/kushagrapandey-cmd/mediconnect), [YTGuide](https://github.com/kushagrapandey-cmd/First_ML_project) and [WWW-of-Anime](https://github.com/kushagrapandey-cmd/WWW-of-Anime). Read each repository's current architecture and verification notes for its implemented scope.
 
@@ -82,6 +82,6 @@ The app is configured as a normal Next.js deployment so Vercel can run the `/api
 - Native smooth anchor scrolling, a reading-progress line, section motion and hover feedback respect the visitor's reduced-motion preference.
 - The home project showcase supports horizontal touch/trackpad scrolling, keyboard focus and previous/next buttons. Vertical page scrolling is never intercepted.
 - A short, keyboard-accessible introduction expands below the hero summary.
-- Cursor sparks run only for fine mouse pointers; click ripples are finite and capped at 24 particles. The floating Effects switch disables both, and reduced motion suppresses them automatically.
-- Sound starts off on every page load. Visitors can opt into quiet synthesized click tones using the floating Sound switch; no audio files, tracking, or extra animation packages are loaded.
+- A subtle cursor trail runs only for fine mouse pointers, is capped at 24 particles and respects reduced motion. The floating Cursor trail switch disables it. There is no click audio or click ripple.
+- Both themes use quiet gradients. Project cards and case studies include optimized screenshots captured from the live demos on 28 October 2026.
 - Interaction regression coverage is in `tests/interactions.spec.ts` for desktop and mobile Chromium.

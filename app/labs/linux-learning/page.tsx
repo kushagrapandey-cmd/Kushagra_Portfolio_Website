@@ -4,16 +4,16 @@ import { PageHero } from "@/components/page-hero";
 import { StatusBadge } from "@/components/status-badge";
 import { linuxLearning } from "@/data/projects";
 
-export const metadata: Metadata = { title: "DevOps Learning Journey" };
+export const metadata: Metadata = { title: "Cloud & Linux Engineering Lab" };
 
 export default function LinuxLearningPage() {
   return (
     <main>
       <PageHero
-        eyebrow="Active learning"
+        eyebrow="Applied foundations"
         title={linuxLearning.title}
         intro={linuxLearning.summary}
-        aside={<><StatusBadge status="learning" /><p className="aside-stat">Aug 2026</p><p>Public tracker created</p></>}
+        aside={<><StatusBadge status="project" /><p className="aside-stat">Sentinel</p><p>Linux + container recovery</p></>}
       />
       <section className="section-block">
         <div className="shell evidence-columns two-columns">
@@ -31,9 +31,9 @@ export default function LinuxLearningPage() {
       </section>
       <section className="section-block section-contrast">
         <div className="shell boundary-panel">
-          <div><p className="eyebrow">Current scope</p><h2>A growing DevOps learning workspace.</h2></div>
+          <div><p className="eyebrow">Current scope</p><h2>Foundations demonstrated through working code.</h2></div>
           <div>
-            <p>The Devops-Learning README now covers Linux, networking, Azure, scripting and Git alongside a broader DevOps roadmap. Current practice and planned topics are distinguished; completed infrastructure projects will be added as repository-backed evidence becomes available.</p>
+            <p>CloudOps Sentinel includes a Python health API, Linux operations scripts, Docker and Kubernetes configuration, and CI recovery exercises. The browser simulator also includes a Linux VM workbench. Azure scripts remain an optional deployment path; deeper cloud operations and infrastructure as code are the next learning stage.</p>
             <ExternalLink className="button button-primary top-button" href={linuxLearning.repo}>Open repository</ExternalLink>
           </div>
         </div>

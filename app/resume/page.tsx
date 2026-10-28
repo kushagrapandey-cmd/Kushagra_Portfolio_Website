@@ -13,7 +13,7 @@ export default function ResumePage() {
         eyebrow="Resume view"
         title={profile.name}
         intro={`${profile.headline}. ${profile.direction}.`}
-        aside={<><p className="mono-label">LATEST PDF</p><p>Two-page ATS-oriented resume aligned with this portfolio.</p><a className="button button-primary resume-download-action" href={profile.resumePdf} download>Download resume PDF</a></>}
+        aside={<><p className="mono-label">RESUME PDF</p><p>Downloadable career resume. The project summaries below reflect the latest portfolio updates.</p><a className="button button-primary resume-download-action" href={profile.resumePdf} download>Download resume PDF</a></>}
       />
       <section className="section-block resume-section">
         <div className="shell resume-layout">
@@ -30,7 +30,7 @@ export default function ResumePage() {
               <div className="resume-skill-grid top-gap">
                 <div><StatusBadge status="professional" /><h3>Professional</h3><p>{focusAreas.professional.join(" · ")}</p></div>
                 <div><StatusBadge status="certified" /><h3>Certified</h3><p>{focusAreas.certified.join(" · ")}</p></div>
-                <div><StatusBadge status="learning" /><h3>Developing</h3><p>{focusAreas.learning.join(" · ")}</p></div>
+                <div><StatusBadge status="project" /><h3>Hands-on foundations</h3><p>{focusAreas.learning.join(" · ")}</p></div>
                 <div><StatusBadge status="project" /><h3>Software foundation</h3><p>{softwareFoundation.join(" · ")}</p></div>
               </div>
             </section>

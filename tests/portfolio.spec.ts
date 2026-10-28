@@ -4,13 +4,15 @@ import { expect, test } from "@playwright/test";
 const routes = [
   ["/", "Kushagra Pandey"],
   ["/experience/", "Infrastructure support in an enterprise environment."],
-  ["/cloud/", "A transition with visible evidence and clear next steps."],
-  ["/work/", "Infrastructure learning and software engineering, shown in context."],
+  ["/cloud/", "Cloud foundations, applied to real operational problems."],
+  ["/work/", "Engineering projects you can explore."],
   ["/work/mediconnect/", "MediConnect"],
+  ["/work/cloudops-sentinel/", "CloudOps Sentinel"],
+  ["/work/www-of-anime/", "WWW-of-Anime"],
   ["/work/riverflow/", "Riverflow"],
   ["/work/ytguide/", "YTGuide"],
-  ["/labs/linux-learning/", "DevOps Learning Journey"],
-  ["/about/", "Software foundation. Infrastructure reality. Cloud direction."],
+  ["/labs/linux-learning/", "Cloud & Linux Engineering Lab"],
+  ["/about/", "Software thinking. Operational experience. Cloud foundations."],
   ["/resume/", "Kushagra Pandey"],
 ] as const;
 
@@ -262,4 +264,17 @@ test("narrow phones keep the case study and resume inside the viewport", async (
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `${path} at ${width}px`).toBe(true);
     }
   }
+});
+
+
+test("live project previews load and point to the deployed demos", async ({ page }) => {
+  await page.goto("/work/");
+  for (const name of ["CloudOps Sentinel", "MediConnect", "YTGuide", "WWW-of-Anime"]) {
+    const card = page.locator(".project-card").filter({ has: page.getByRole("heading", { name, exact: true }) });
+    await expect(card.getByRole("link", { name: "Live demo" })).toHaveAttribute("href", /^https:\/\//);
+    const image = card.locator("img");
+    await image.scrollIntoViewIfNeeded();
+    await expect.poll(() => image.evaluate((node: HTMLImageElement) => node.complete && node.naturalWidth > 0)).toBe(true);
+  }
+  await expect(page.locator("main")).not.toContainText(/girlfriend|petal atelier/i);
 });

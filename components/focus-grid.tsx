@@ -23,7 +23,7 @@ export function FocusGrid() {
         </div>
       </article>
       <article className="focus-card focus-learning">
-        <div className="card-topline"><StatusBadge status="learning" /><span>Direction in progress</span></div>
+        <div className="card-topline"><StatusBadge status="project" /><span>Applied in projects</span></div>
         <h3>Cloud / DevOps foundations</h3>
         <ul className="clean-list">
           {focusAreas.learning.map((item) => <li key={item}>{item}</li>)}

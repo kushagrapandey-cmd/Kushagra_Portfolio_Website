@@ -29,14 +29,14 @@ export default function HomePage() {
             <p className="hero-summary">{profile.summary}</p>
             <QuickIntro />
             <div className="hero-actions">
-              <Link className="button button-primary" href="/experience">View experience</Link>
+              <Link className="button button-primary" href="/work/cloudops-sentinel">Explore CloudOps Sentinel</Link>
               <Link className="button button-quiet" href="/resume">Resume view</Link>
               <a className="button button-quiet" href={profile.resumePdf} download>Download PDF</a>
             </div>
             <ul className="hero-proof" aria-label="Profile evidence summary">
               <li><span>01</span><strong>Professional</strong><small>Infrastructure support</small></li>
               <li><span>02</span><strong>Certified</strong><small>AZ-104 · AZ-900</small></li>
-              <li><span>03</span><strong>Building</strong><small>Linux · Cloud · DevOps</small></li>
+              <li><span>03</span><strong>Hands-on</strong><small>Linux · Cloud · DevOps</small></li>
             </ul>
           </div>
           <div className="hero-visual-column">
@@ -54,8 +54,8 @@ export default function HomePage() {
               </div>
               <figcaption>
                 <p className="mono-label">KUSHAGRA PANDEY</p>
-                <strong>Infrastructure support + Azure direction</strong>
-                <span>Software foundation, production operations experience and an evidence-first move into Cloud / DevOps.</span>
+                <strong>Infrastructure operations + cloud projects</strong>
+                <span>Production support experience, Azure certifications and working software and cloud labs.</span>
               </figcaption>
             </figure>
             <CareerTopology />
@@ -63,12 +63,26 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="section-block section-contrast">
+        <div className="shell">
+          <SectionHeading
+            eyebrow="01 / Engineering work"
+            title="Selected builds. Real interfaces. Live demos."
+            description="Explore cloud operations, semantic search, patient-controlled records and interactive web applications. Each case study explains the architecture, features and current scope."
+          />
+          <ProjectRail>
+            {projects.map((project) => <ProjectCard key={project.slug} project={project} />)}
+          </ProjectRail>
+          <div className="section-action"><Link className="button button-quiet" href="/work">View engineering work archive</Link></div>
+        </div>
+      </section>
+
       <section className="section-block">
         <div className="shell">
           <SectionHeading
-            eyebrow="01 / Current focus"
+            eyebrow="02 / Current focus"
             title="Skills shown with their evidence."
-            description="Professional work, certifications and active learning are separated so recruiters can see where each capability comes from."
+            description="Production operations, Azure credentials and applied project skills across Linux, automation and containers."
           />
           <FocusGrid />
         </div>
@@ -77,7 +91,7 @@ export default function HomePage() {
       <section className="section-block section-contrast">
         <div className="shell">
           <SectionHeading
-            eyebrow="02 / Professional experience"
+            eyebrow="03 / Professional experience"
             title="Operating in production environments."
             description="HCLTech experience spans Ericsson Rhythm Team L1.5 support and Benchmark Electronics ICC shift leadership."
           />
@@ -109,19 +123,19 @@ export default function HomePage() {
       <section className="section-block">
         <div className="shell">
           <SectionHeading
-            eyebrow="03 / Direction"
-            title="From operations toward cloud engineering."
-            description="The current path builds from infrastructure exposure and Azure credentials into deeper Linux, networking and automation practice."
+            eyebrow="04 / Applied skills"
+            title="From incident to recovery. From code to deployment."
+            description="A practical foundation in troubleshooting, scripting and container workflows, supported by reproducible projects."
           />
           <div className="journey-preview">
             <div className="journey-preview-copy">
-              <p className="big-statement">Current path: stronger Linux and networking fundamentals, deeper Azure administration, then automation and delivery tooling.</p>
-              <Link className="button button-primary" href="/cloud">Explore cloud journey</Link>
+              <p className="big-statement">I diagnose Linux services, automate checks with Bash and Python, and practise Kubernetes recovery through CloudOps Sentinel. My next focus is deeper Azure operations and infrastructure as code.</p>
+              <Link className="button button-primary" href="/cloud">Explore cloud engineering</Link>
             </div>
-            <div className="terminal-note" aria-label="Current learning status">
+            <div className="terminal-note" aria-label="Applied engineering toolkit">
               <span className="terminal-prompt">$</span>
               <code>current_focus --show</code>
-              <pre>{`linux administration\nnetworking fundamentals\nazure administration\nautomation foundations`}</pre>
+              <pre>{`linux + networking → diagnostics\nbash + python → automation\ndocker + kubernetes → recovery\ngithub actions → validation`}</pre>
             </div>
           </div>
         </div>
@@ -130,9 +144,9 @@ export default function HomePage() {
       <section className="section-block section-contrast">
         <div className="shell">
           <SectionHeading
-            eyebrow="04 / Certifications"
-            title="Azure credentials support the transition."
-            description="AZ-104 and AZ-900 are the strongest formal evidence behind the current Azure direction."
+            eyebrow="05 / Certifications"
+            title="Microsoft Azure certified."
+            description="Azure Administrator and Fundamentals credentials complement hands-on infrastructure support and project work."
           />
           <div className="cert-grid">
             {certifications.map((cert) => <CertificationCard key={cert.code} certification={cert} />)}
@@ -143,9 +157,9 @@ export default function HomePage() {
       <section className="section-block">
         <div className="shell">
           <SectionHeading
-            eyebrow="05 / Active learning"
-            title="Current infrastructure learning."
-            description="Devops-Learning documents Linux and networking foundations, Azure study and scripting practice, with a roadmap toward containers, infrastructure as code and delivery pipelines."
+            eyebrow="06 / Applied engineering"
+            title="A working cloud operations lab."
+            description="CloudOps Sentinel brings Linux diagnostics, container health checks, recovery drills and a command-driven Linux workbench into one explainable project."
           />
           <article className="lab-feature">
             <div>
@@ -164,19 +178,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-block section-contrast">
-        <div className="shell">
-          <SectionHeading
-            eyebrow="06 / Engineering work"
-            title="Software engineering foundation."
-            description="Earlier software projects show application-development experience while current cloud and infrastructure learning remains clearly separated."
-          />
-          <ProjectRail>
-            {projects.map((project) => <ProjectCard key={project.slug} project={project} />)}
-          </ProjectRail>
-          <div className="section-action"><Link className="button button-quiet" href="/work">View engineering work archive</Link></div>
-        </div>
-      </section>
+
 
       <section id="contact" className="contact-section">
         <div className="shell contact-form-grid">

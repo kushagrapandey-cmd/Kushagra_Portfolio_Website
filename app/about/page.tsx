@@ -11,8 +11,8 @@ export default function AboutPage() {
     <main>
       <PageHero
         eyebrow="About"
-        title="Software foundation. Infrastructure reality. Cloud direction."
-        intro="A career path from software-development projects into infrastructure operations, Azure certification and cloud-focused learning."
+        title="Software thinking. Operational experience. Cloud foundations."
+        intro="Infrastructure support and shift leadership at HCLTech, Azure certifications, deployed web applications and hands-on cloud operations projects."
       />
       <section className="section-block">
         <div className="shell about-story-layout">
@@ -36,7 +36,7 @@ export default function AboutPage() {
           <div className="story-grid about-story-grid">
             <article><span className="story-number">01</span><StatusBadge status="project" /><h2>Software foundation</h2><p>Computer Science education and earlier projects built experience with React, Node.js, Express, MongoDB, Next.js and related application-development patterns.</p></article>
             <article><span className="story-number">02</span><StatusBadge status="professional" /><h2>Infrastructure exposure</h2><p>Professional work shifted the focus toward monitoring, Windows Server troubleshooting, health checks, incident handling and basic cloud-portal monitoring.</p></article>
-            <article><span className="story-number">03</span><StatusBadge status="learning" /><h2>Cloud direction</h2><p>Azure certifications support a deliberate move toward deeper cloud administration, Linux, networking, automation and DevOps engineering.</p></article>
+            <article><span className="story-number">03</span><StatusBadge status="project" /><h2>Applied cloud foundations</h2><p>Linux diagnostics, Bash/Python scripts and Kubernetes recovery labs complement my Azure certifications. I continue to deepen these foundations through reproducible projects.</p></article>
           </div>
         </div>
       </section>

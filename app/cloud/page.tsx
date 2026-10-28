@@ -14,16 +14,16 @@ export default function CloudPage() {
     <main>
       <PageHero
         eyebrow="Cloud journey"
-        title="A transition with visible evidence and clear next steps."
-        intro="The direction is Azure Cloud and DevOps engineering. Current evidence combines infrastructure-support experience, Azure certifications and active Linux/networking learning."
-        aside={<><StatusBadge status="learning" /><p className="aside-stat">In progress</p><p>Cloud / DevOps foundations</p></>}
+        title="Cloud foundations, applied to real operational problems."
+        intro="Azure-certified infrastructure professional with practical foundations in Linux, Bash, Python, Docker, Kubernetes and CI. CloudOps Sentinel connects those skills through diagnostics and recovery exercises."
+        aside={<><StatusBadge status="project" /><p className="aside-stat">Hands-on</p><p>Cloud / DevOps foundations</p></>}
       />
       <section className="section-block">
         <div className="shell journey-layout">
           <div>
             <p className="eyebrow">Progression</p>
             <h2 className="medium-heading">Where each capability sits today</h2>
-            <p className="case-copy">Statuses are contextual, not percentage scores. Professional means used in current work; certified means credentialed; learning means actively developing; direction identifies the next stage.</p>
+            <p className="case-copy">Professional experience covers infrastructure support and incident coordination. Project work demonstrates foundational automation and container skills. The continuing path focuses on deeper Azure deployment, infrastructure as code and observability.</p>
           </div>
           <JourneyMap />
         </div>
@@ -50,8 +50,8 @@ export default function CloudPage() {
             <ul className="clean-list">{focusAreas.certified.map((item) => <li key={item}>{item}</li>)}</ul>
           </article>
           <article className="evidence-column">
-            <StatusBadge status="learning" />
-            <h3>Currently developing</h3>
+            <StatusBadge status="project" />
+            <h3>Hands-on foundations</h3>
             <ul className="clean-list">{focusAreas.learning.map((item) => <li key={item}>{item}</li>)}</ul>
           </article>
         </div>
@@ -63,7 +63,7 @@ export default function CloudPage() {
             <h2>{linuxLearning.title}</h2>
             <p>{linuxLearning.summary}</p>
           </div>
-          <div className="lab-actions"><Link className="button button-primary" href="/labs/linux-learning">Review Linux tracker</Link></div>
+          <div className="lab-actions"><Link className="button button-primary" href="/labs/linux-learning">Review cloud lab</Link></div>
         </div>
       </section>
     </main>

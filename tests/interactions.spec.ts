@@ -25,23 +25,12 @@ test("intro works with the keyboard and projects scroll without page overflow", 
   expect(overflow.scrollWidth, JSON.stringify(overflow)).toBeLessThanOrEqual(overflow.width + 1);
 });
 
-test("sound is opt-in and can be disabled", async ({ page }) => {
+test("portfolio is silent and the cursor trail can be disabled", async ({ page }) => {
   await page.goto("/");
-  await expect(page.getByRole("button", { name: "Sound off" })).toHaveAttribute("aria-pressed", "false");
-  await page.getByRole("button", { name: "Sound off" }).click();
-  await expect(page.getByRole("button", { name: "Sound on" })).toHaveAttribute("aria-pressed", "true");
-  await page.getByRole("button", { name: "Sound on" }).click();
-  await expect(page.getByRole("button", { name: "Sound off" })).toHaveAttribute("aria-pressed", "false");
-});
-
-test("click effects are transient and turning them off stops particles", async ({ page }) => {
-  await page.goto("/");
-  await page.locator(".hero-eyebrow").click();
-  await expect(page.locator(".click-orbit")).toHaveCount(1);
-  await expect(page.locator(".click-orbit")).toHaveCount(0);
-  await page.getByRole("button", { name: "Effects on" }).click();
-  await expect(page.getByRole("button", { name: "Effects off" })).toHaveAttribute("aria-pressed", "false");
-  await page.locator(".hero-eyebrow").click();
+  await expect(page.getByRole("button", { name: /sound/i })).toHaveCount(0);
+  await page.getByRole("button", { name: "Cursor trail on" }).click();
+  await expect(page.getByRole("button", { name: "Cursor trail off" })).toHaveAttribute("aria-pressed", "false");
+  await page.mouse.move(120, 120);
   await expect(page.locator(".interaction-layer > span")).toHaveCount(0);
 });
 

@@ -9,9 +9,9 @@ export const profile = {
   name: "Kushagra Pandey",
   shortName: "KP",
   headline: "Infrastructure Support Professional | Azure Certified",
-  direction: "Building toward Cloud & DevOps Engineering",
+  direction: "Azure · Linux · Automation · Cloud / DevOps",
   summary:
-    "HCLTech infrastructure experience across Ericsson L1.5 support and Benchmark Electronics ICC shift leadership: Linux and Windows troubleshooting, AWS/Azure portal checks, incident coordination and operational go-live support, backed by Microsoft Azure certifications and a software-development foundation.",
+    "Infrastructure support professional at HCLTech, with AZ-104 and AZ-900 certifications and hands-on foundations in Linux, Bash, Python, Docker and Kubernetes. I connect incident response and shift leadership with working cloud labs and deployed full-stack applications.",
   github: "https://github.com/kushagrapandey-cmd",
   linkedin: "https://www.linkedin.com/in/kushagra-pandey-353b71175",
   email: "kushagrapandey102@gmail.com",
@@ -62,7 +62,7 @@ export const certifications = [
 export const focusAreas = {
   professional: ["Linux / Windows L1.5 support", "Infrastructure monitoring", "Shift leadership & SOPs", "Azure / AWS portal troubleshooting"],
   certified: ["AZ-104", "AZ-900"],
-  learning: ["Linux administration", "Networking fundamentals", "Azure administration practice", "Shell & automation foundations", "DevOps foundations"],
+  learning: ["Linux services, logs & networking", "Bash / Python operations scripts", "Docker & Kubernetes recovery labs", "GitHub Actions CI", "Azure CLI & deployment templates"],
 } as const;
 
 export const softwareFoundation = ["JavaScript", "React", "Node.js", "Express", "MongoDB", "Next.js", "TypeScript", "Git"] as const;
@@ -71,8 +71,8 @@ export const careerJourney = [
   { title: "Software Development", status: "project" as EvidenceStatus, detail: "Academic and personal full-stack development projects." },
   { title: "Enterprise Infrastructure", status: "professional" as EvidenceStatus, detail: "Ericsson L1.5 infrastructure support and Benchmark Electronics ICC shift leadership at HCLTech." },
   { title: "Azure", status: "certified" as EvidenceStatus, detail: "AZ-900 and AZ-104 certifications, with basic Azure portal monitoring exposure at work." },
-  { title: "Linux + Networking", status: "learning" as EvidenceStatus, detail: "Current learning direction documented in the Devops-Learning repository." },
-  { title: "Cloud / DevOps Engineering", status: "planned" as EvidenceStatus, detail: "Career direction, supported by ongoing infrastructure, Linux, networking and automation learning." },
+  { title: "Linux + Networking", status: "project" as EvidenceStatus, detail: "Linux diagnostics, service recovery and Bash/Python tooling in CloudOps Sentinel." },
+  { title: "Cloud / DevOps Engineering", status: "project" as EvidenceStatus, detail: "Docker, Kubernetes recovery drills and GitHub Actions CI; extending into deeper Azure platform operations." },
 ] as const;
 
 export const education = [

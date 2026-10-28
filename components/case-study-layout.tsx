@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Project } from "@/data/projects";
 import { ArchitectureDiagram } from "./architecture-diagram";
@@ -23,12 +24,15 @@ export function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
             <ul className="tag-list">
               {project.stack.map((tech) => <li key={tech}>{tech}</li>)}
             </ul>
-            <ExternalLink className="button button-primary" href={project.repo}>View repository</ExternalLink>
+            {project.live && <ExternalLink className="button button-primary" href={project.live}>Open live demo</ExternalLink>}
+            {project.slug === "cloudops-sentinel" && <ExternalLink className="text-link" href="https://cloudops-sentinel-three.vercel.app/linux.html">Linux VM workbench</ExternalLink>}
+            <ExternalLink className="button button-quiet" href={project.repo}>View repository</ExternalLink>
           </div>
         </div>
       </section>
 
       <div className="shell case-body">
+        {project.screenshot && <figure className="case-preview"><Image src={project.screenshot} alt={project.screenshotAlt || project.title} width={1200} height={800} sizes="(max-width: 800px) 95vw, 1100px" /><figcaption>Demo interface · October 2026{project.slug === "cloudops-sentinel" ? " · Browser simulation, not a live cluster" : ""}</figcaption></figure>}
         <section className="case-section">
           <p className="eyebrow">01 / Problem</p>
           <h2>What the project explores</h2>

@@ -12,13 +12,13 @@ export default function WorkPage() {
     <main>
       <PageHero
         eyebrow="Engineering work"
-        title="Infrastructure learning and software engineering, shown in context."
-        intro="Current infrastructure learning is separated from earlier application-development projects so the evidence behind each area stays clear."
-        aside={<><span className="aside-stat">03</span><p>Selected software case studies</p></>}
+        title="Engineering projects you can explore."
+        intro="Live applications and cloud labs, with interface previews, source code and architecture walkthroughs."
+        aside={<><span className="aside-stat">04</span><p>Selected engineering case studies</p></>}
       />
       <section className="section-block">
         <div className="shell">
-          <div className="work-category-header"><div><p className="eyebrow">Current direction</p><h2 className="medium-heading">Infrastructure learning evidence</h2></div><StatusBadge status="learning" /></div>
+          <div className="work-category-header"><div><p className="eyebrow">Cloud / DevOps</p><h2 className="medium-heading">Linux and automation foundations</h2></div><StatusBadge status="project" /></div>
           <article className="lab-feature top-gap">
             <div>
               <p className="mono-label">{linuxLearning.eyebrow}</p>
@@ -31,7 +31,7 @@ export default function WorkPage() {
       </section>
       <section className="section-block section-contrast">
         <div className="shell">
-          <div className="work-category-header"><div><p className="eyebrow">Earlier foundation</p><h2 className="medium-heading">Software engineering projects</h2></div><StatusBadge status="project" /></div>
+          <div className="work-category-header"><div><p className="eyebrow">Selected builds</p><h2 className="medium-heading">Cloud & full-stack projects</h2></div><StatusBadge status="project" /></div>
           <div className="project-grid top-gap">
             {projects.map((project, index) => <ProjectCard key={project.slug} project={project} featured={index === 0} />)}
           </div>

@@ -9,7 +9,7 @@ export function SiteFooter() {
         <div>
           <p className="eyebrow">Kushagra Pandey</p>
           <p className="footer-statement">
-            Infrastructure support, Azure certification, cloud learning and a software-engineering foundation.
+            Infrastructure support, Azure certification, hands-on cloud projects and full-stack development.
           </p>
         </div>
         <nav className="footer-links" aria-label="Footer navigation">
