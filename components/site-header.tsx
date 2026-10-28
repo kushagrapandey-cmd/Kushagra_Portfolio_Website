@@ -76,7 +76,7 @@ export function SiteHeader() {
 
         <div className="header-actions">
           <ThemeToggle />
-          <Link className="button button-quiet desktop-action" href="/resume">Resume</Link>
+          <Link className="button button-quiet desktop-action" href="/resume" aria-current={isActivePath(pathname, "/resume") ? "page" : undefined}>Resume</Link>
           <ExternalLink className="button button-primary desktop-action" href={profile.github}>GitHub</ExternalLink>
           <div className="mobile-menu" ref={menuRef}>
             <button
@@ -101,7 +101,7 @@ export function SiteHeader() {
                     {label}
                   </Link>
                 ))}
-                <Link href="/resume" aria-current={pathname === "/resume" ? "page" : undefined} onClick={() => setMenuPath(null)}>Resume</Link>
+                <Link href="/resume" aria-current={isActivePath(pathname, "/resume") ? "page" : undefined} onClick={() => setMenuPath(null)}>Resume</Link>
                 <ExternalLink href={profile.github}>GitHub</ExternalLink>
               </nav>
             ) : null}

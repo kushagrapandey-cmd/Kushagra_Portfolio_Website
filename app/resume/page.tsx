@@ -13,7 +13,7 @@ export default function ResumePage() {
         eyebrow="Resume view"
         title={profile.name}
         intro={`${profile.headline}. ${profile.direction}.`}
-        aside={<><p className="mono-label">RESUME PDF</p><p>Downloadable career resume. The project summaries below reflect the latest portfolio updates.</p><a className="button button-primary resume-download-action" href={profile.resumePdf} download>Download resume PDF</a></>}
+        aside={<><p className="mono-label">RESUME PDF</p><p>Two-page, single-column resume with current infrastructure experience, cloud projects and technical skills. Updated October 2026.</p><a className="button button-primary resume-download-action" href={profile.resumePdf} download>Download resume PDF</a></>}
       />
       <section className="section-block resume-section">
         <div className="shell resume-layout">

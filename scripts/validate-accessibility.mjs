@@ -14,22 +14,12 @@ function contrast(a, b) {
   return (high + 0.05) / (low + 0.05);
 }
 
-const pairs = [
-  ["dark primary", "#F4F7FA", "#0B0F14"],
-  ["dark secondary", "#9CA9B8", "#0B0F14"],
-  ["dark subtle", "#758292", "#0B0F14"],
-  ["dark azure", "#38A9FF", "#0B0F14"],
-  ["dark verified", "#65C18C", "#0B0F14"],
-  ["dark learning", "#E0A84B", "#0B0F14"],
-  ["dark project", "#AD96FF", "#0B0F14"],
-  ["light primary", "#111820", "#F6F8FA"],
-  ["light secondary", "#566474", "#F6F8FA"],
-  ["light subtle", "#5F6F80", "#F6F8FA"],
-  ["light azure", "#0067A8", "#F6F8FA"],
-  ["light verified", "#1D6F42", "#F6F8FA"],
-  ["light learning", "#795000", "#F6F8FA"],
-  ["light project", "#6545B5", "#F6F8FA"],
+// Check actual theme colours against their lightest/darkest gradient stops.
+const palettes = [
+  { name: "dark", foreground: ["#F4F7FF", "#BAC9DF", "#A4B7D2", "#78C5FF", "#65C18C", "#E0A84B", "#AD96FF"], backgrounds: ["#101B37", "#173C48", "#302651", "#203554"] },
+  { name: "light", foreground: ["#142740", "#415671", "#4C607B", "#145F91", "#1D6F42", "#795000", "#6545B5"], backgrounds: ["#E4ECFC", "#D7E5FF", "#D3EEE9", "#E5DCF8", "#DCE9F7"] },
 ];
+const pairs = palettes.flatMap(p => p.foreground.flatMap(fg => p.backgrounds.map(bg => [`${p.name} ${fg} on ${bg}`, fg, bg])));
 
 const failures = [];
 for (const [name, fg, bg] of pairs) {

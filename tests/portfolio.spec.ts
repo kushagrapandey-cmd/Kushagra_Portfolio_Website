@@ -278,3 +278,25 @@ test("live project previews load and point to the deployed demos", async ({ page
   }
   await expect(page.locator("main")).not.toContainText(/girlfriend|petal atelier/i);
 });
+
+
+test("tablet navigation remains usable without clipped actions", async ({ page }) => {
+  for (const width of [821, 1024, 1180]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/");
+    await expect(page.getByRole("button", { name: "Menu", exact: true })).toBeVisible();
+    await page.getByRole("button", { name: "Menu", exact: true }).click();
+    await expect(page.getByRole("navigation", { name: "Mobile navigation" })).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1)).toBe(true);
+    await page.getByRole("button", { name: "Close", exact: true }).press("Escape");
+  }
+});
+
+test("both colour themes pass homepage accessibility checks", async ({ page }) => {
+  await page.goto("/");
+  for (let i = 0; i < 2; i++) {
+    const result = await new AxeBuilder({ page }).analyze();
+    expect(result.violations, JSON.stringify(result.violations)).toEqual([]);
+    await page.getByRole("button", { name: "Toggle color theme" }).click();
+  }
+});
