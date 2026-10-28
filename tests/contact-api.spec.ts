@@ -9,6 +9,7 @@ const payload = {
 };
 const submission = () => new Request("https://portfolio.example/api/contact", {
   method: "POST",
+  headers: { "Content-Type": "application/json" },
   body: JSON.stringify(payload),
 });
 
@@ -68,4 +69,15 @@ test("contact explicitly fails when no delivery credential is configured", async
   } finally {
     if (originalKey !== undefined) process.env.RESEND_API_KEY = originalKey;
   }
+});
+
+
+test("contact enforces the streamed size limit without trusting Content-Length", async () => {
+  const request = new Request("https://portfolio.example/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ website: "x".repeat(9000) }),
+  });
+  expect(request.headers.has("content-length")).toBe(false);
+  expect((await POST(request)).status).toBe(413);
 });
