@@ -16,11 +16,12 @@ function contrast(a, b) {
 
 // Check actual theme colours against their lightest/darkest gradient stops.
 const palettes = [
-  { name: "dark", foreground: ["#F4F7FF", "#BAC9DF", "#A4B7D2", "#78C5FF", "#65C18C", "#E0A84B", "#AD96FF"], backgrounds: ["#101B37", "#173C48", "#302651", "#203554"] },
+  { name: "dark", foreground: ["#F4F7FF", "#BAC9DF", "#A4B7D2", "#BAA7F5", "#65C18C", "#E0A84B", "#AD96FF"], backgrounds: ["#0D0E12", "#17181E", "#23242D", "#211C2C"] },
   { name: "light", foreground: ["#142740", "#415671", "#4C607B", "#145F91", "#1D6F42", "#795000", "#6545B5"], backgrounds: ["#E4ECFC", "#D7E5FF", "#D3EEE9", "#E5DCF8", "#DCE9F7"] },
 ];
 const pairs = palettes.flatMap(p => p.foreground.flatMap(fg => p.backgrounds.map(bg => [`${p.name} ${fg} on ${bg}`, fg, bg])));
 
+pairs.push(["terminal accent in both modes", "#7BE5D4", "#101820"]);
 const failures = [];
 for (const [name, fg, bg] of pairs) {
   const ratio = contrast(fg, bg);
