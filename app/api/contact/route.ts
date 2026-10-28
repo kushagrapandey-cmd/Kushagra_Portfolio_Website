@@ -17,11 +17,44 @@ function clean(value: unknown, maxLength: number) {
   return typeof value === "string" && value.length <= maxLength ? value.trim() : "";
 }
 
+// A bounded per-instance delivery budget. Serverless instances do not share this
+// state; this is defense in depth, not a distributed bot/rate-limit service.
+let budget = { start: 0, used: 0 };
+const MAX_BODY_BYTES = 8192;
+
 export async function POST(request: Request) {
+  const origin = request.headers.get("origin");
+  if ((origin && origin !== new URL(request.url).origin) || request.headers.get("sec-fetch-site") === "cross-site") {
+    return NextResponse.json({ success: false, message: "Cross-site submission rejected." }, { status: 403 });
+  }
+  if (request.headers.get("content-type")?.split(";")[0].trim().toLowerCase() !== "application/json") {
+    return NextResponse.json({ success: false, message: "Send JSON content." }, { status: 415 });
+  }
+  const declaredSize = Number(request.headers.get("content-length"));
+  if (declaredSize > MAX_BODY_BYTES) {
+    return NextResponse.json({ success: false, message: "Submission too large." }, { status: 413 });
+  }
   let body: Record<string, unknown>;
 
   try {
-    body = (await request.json()) as Record<string, unknown>;
+    const reader = request.body?.getReader();
+    const chunks: Uint8Array[] = [];
+    let size = 0;
+    if (reader) {
+      try {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          size += value.byteLength;
+          if (size > MAX_BODY_BYTES) {
+            await reader.cancel();
+            return NextResponse.json({ success: false, message: "Submission too large." }, { status: 413 });
+          }
+          chunks.push(value);
+        }
+      } finally { reader.releaseLock(); }
+    }
+    body = JSON.parse(Buffer.concat(chunks).toString("utf8")) as Record<string, unknown>;
     if (!body || typeof body !== "object" || Array.isArray(body)) throw new Error("Invalid body");
   } catch {
     return NextResponse.json(
@@ -46,11 +79,17 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: true });
   }
 
-  if (!name || !email || !message || !isValidEmail(email)) {
+  if (!name || !email || !message || !isValidEmail(email) || /[\r\n\x00]/.test(name + email)) {
     return NextResponse.json(
       { success: false, message: "Please enter a valid name, email and message." },
       { status: 400 },
     );
+  }
+
+  const now = Date.now();
+  if (now - budget.start >= 60_000) budget = { start: now, used: 0 };
+  if (budget.used >= 20) {
+    return NextResponse.json({ success: false, message: "Too many messages. Please try again shortly." }, { status: 429, headers: { "Retry-After": "60", "Cache-Control": "no-store" } });
   }
 
   const apiKey = process.env.RESEND_API_KEY?.trim();
@@ -66,6 +105,8 @@ export async function POST(request: Request) {
       { status: 503 },
     );
   }
+
+  budget.used += 1;
 
   const emailBody = [
     "New portfolio contact message",

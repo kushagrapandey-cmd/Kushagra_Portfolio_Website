@@ -300,3 +300,23 @@ test("both colour themes pass homepage accessibility checks", async ({ page }) =
     await page.getByRole("button", { name: "Toggle color theme" }).click();
   }
 });
+
+test("security headers protect pages without exposing the framework header", async ({ request }) => {
+  const response = await request.get("/");
+  const headers = response.headers();
+  expect(headers["x-content-type-options"]).toBe("nosniff");
+  expect(headers["x-frame-options"]).toBe("DENY");
+  expect(headers["content-security-policy"]).toContain("frame-ancestors 'none'");
+  expect(headers["x-powered-by"]).toBeUndefined();
+});
+
+test("contact rejects cross-site, non-JSON and oversized bodies before delivery", async ({ request }) => {
+  const crossSite = await request.post("/api/contact", { headers: { origin: "https://unrelated.example" }, data: { website: "bot" } });
+  expect(crossSite.status()).toBe(403);
+  const text = await request.post("/api/contact", { headers: { "Content-Type": "text/plain" }, data: "{}" });
+  expect(text.status()).toBe(415);
+  const oversized = await request.post("/api/contact", { data: { website: "x".repeat(9000) } });
+  expect(oversized.status()).toBe(413);
+  const injection = await request.post("/api/contact", { data: { name: "Visitor\r\nInjected", email: "test@example.com", message: "Hello" } });
+  expect(injection.status()).toBe(400);
+});
