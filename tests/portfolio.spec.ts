@@ -43,7 +43,7 @@ for (const [path, heading] of routes) {
 test("desktop navigation identifies the current section", async ({ page }, testInfo) => {
   test.skip(testInfo.project.name !== "desktop-chromium", "Desktop-only navigation test");
   await page.goto("/cloud/");
-  const current = page.getByRole("navigation", { name: "Primary navigation" }).getByRole("link", { name: "Cloud Journey" });
+  const current = page.getByRole("navigation", { name: "Primary navigation" }).getByRole("link", { name: "Cloud & DevOps" });
   await expect(current).toHaveAttribute("aria-current", "page");
   await current.press("Tab");
 });

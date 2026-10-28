@@ -2,8 +2,6 @@ import Image from "next/image";
 import { ProjectRail } from "@/components/project-rail";
 import { QuickIntro } from "@/components/quick-intro";
 import Link from "next/link";
-import { CareerTopology } from "@/components/career-topology";
-import { CertificationCard } from "@/components/certification-card";
 import { ContactForm } from "@/components/contact-form";
 import { ExternalLink } from "@/components/external-link";
 import { FocusGrid } from "@/components/focus-grid";
@@ -11,8 +9,8 @@ import { OperationsFlow } from "@/components/operations-flow";
 import { ProjectCard } from "@/components/project-card";
 import { SectionHeading } from "@/components/section-heading";
 import { StatusBadge } from "@/components/status-badge";
-import { certifications, experience, profile } from "@/data/profile";
-import { linuxLearning, projects } from "@/data/projects";
+import { experience, profile } from "@/data/profile";
+import { projects } from "@/data/projects";
 
 export default function HomePage() {
   const role = experience[0];
@@ -58,7 +56,7 @@ export default function HomePage() {
                 <span>Production support experience, Azure certifications and working software and cloud labs.</span>
               </figcaption>
             </figure>
-            <CareerTopology />
+            <div className="case-side-card"><p className="mono-label">OPERATIONS SCOPE</p><h2>Enterprise support. Applied cloud skills.</h2><p>HCLTech · Ericsson L1.5 support · Benchmark ICC shift leadership.</p><p>AZ-104 + AZ-900 · Linux diagnostics · Container recovery labs.</p><Link className="text-link" href="/cloud">Cloud &amp; DevOps evidence →</Link></div>
           </div>
         </div>
       </section>
@@ -120,70 +118,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section-block">
-        <div className="shell">
-          <SectionHeading
-            eyebrow="04 / Applied skills"
-            title="From incident to recovery. From code to deployment."
-            description="A practical foundation in troubleshooting, scripting and container workflows, supported by reproducible projects."
-          />
-          <div className="journey-preview">
-            <div className="journey-preview-copy">
-              <p className="big-statement">I diagnose Linux services, automate checks with Bash and Python, and practise Kubernetes recovery through CloudOps Sentinel. My next focus is deeper Azure operations and infrastructure as code.</p>
-              <Link className="button button-primary" href="/cloud">Explore cloud engineering</Link>
-            </div>
-            <div className="terminal-note" aria-label="Applied engineering toolkit">
-              <span className="terminal-prompt">$</span>
-              <code>current_focus --show</code>
-              <pre>{`linux + networking → diagnostics\nbash + python → automation\ndocker + kubernetes → recovery\ngithub actions → validation`}</pre>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-block section-contrast">
-        <div className="shell">
-          <SectionHeading
-            eyebrow="05 / Certifications"
-            title="Microsoft Azure certified."
-            description="Azure Administrator and Fundamentals credentials complement hands-on infrastructure support and project work."
-          />
-          <div className="cert-grid">
-            {certifications.map((cert) => <CertificationCard key={cert.code} certification={cert} />)}
-          </div>
-        </div>
-      </section>
-
-      <section className="section-block">
-        <div className="shell">
-          <SectionHeading
-            eyebrow="06 / Applied engineering"
-            title="A working cloud operations lab."
-            description="CloudOps Sentinel brings Linux diagnostics, container health checks, recovery drills and a command-driven Linux workbench into one explainable project."
-          />
-          <article className="lab-feature">
-            <div>
-              <div className="project-meta-row"><span className="mono-label">{linuxLearning.eyebrow}</span><StatusBadge status={linuxLearning.status} /></div>
-              <h3>{linuxLearning.title}</h3>
-              <p>{linuxLearning.summary}</p>
-              <ul className="tag-list">
-                {linuxLearning.topics.map((topic) => <li key={topic}>{topic}</li>)}
-              </ul>
-            </div>
-            <div className="lab-actions">
-              <Link className="button button-primary" href="/labs/linux-learning">Inspect evidence</Link>
-              <ExternalLink className="button button-quiet" href={linuxLearning.repo}>Repository</ExternalLink>
-            </div>
-          </article>
-        </div>
-      </section>
-
-
-
       <section id="contact" className="contact-section">
         <div className="shell contact-form-grid">
           <div className="contact-form-copy">
-            <p className="eyebrow">07 / Contact</p>
+            <p className="eyebrow">04 / Contact</p>
             <h2>Let&apos;s talk infrastructure, Azure, cloud or engineering work.</h2>
             <p>Send a short message from this page. It is delivered to my personal inbox, and you can also reach me through LinkedIn or GitHub.</p>
             <div className="contact-actions contact-actions-left">

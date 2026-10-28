@@ -10,7 +10,7 @@ import { ThemeToggle } from "./theme-toggle";
 const nav = [
   ["Overview", "/"],
   ["Experience", "/experience"],
-  ["Cloud Journey", "/cloud"],
+  ["Cloud & DevOps", "/cloud"],
   ["Engineering Work", "/work"],
   ["About", "/about"],
 ] as const;

@@ -1,5 +1,9 @@
 """Rebuild the two-page, text-based resume. Requires reportlab."""
 from pathlib import Path
+import argparse
+parser=argparse.ArgumentParser()
+parser.add_argument("--target",choices=["general","cloud-support","junior-devops"],default="general")
+target=parser.parse_args().target
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, PageBreak, KeepTogether
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib import colors
@@ -10,7 +14,7 @@ pdfmetrics.registerFont(TTFont("ResumeSans",str(FONT_DIR/"DejaVuSans.ttf")))
 pdfmetrics.registerFont(TTFont("ResumeSans-Bold",str(FONT_DIR/"DejaVuSans-Bold.ttf")))
 pdfmetrics.registerFontFamily("ResumeSans",normal="ResumeSans",bold="ResumeSans-Bold",italic="ResumeSans",boldItalic="ResumeSans-Bold")
 ROOT=Path(__file__).resolve().parents[1]
-OUT=ROOT/'public/resume/Kushagra_Pandey_Resume.pdf'
+OUT=ROOT/'public/resume'/({'general':'Kushagra_Pandey_Resume.pdf','cloud-support':'Kushagra_Pandey_Cloud_Support_Resume.pdf','junior-devops':'Kushagra_Pandey_Junior_DevOps_Resume.pdf'}[target])
 styles={
  'name':ParagraphStyle('name',fontName='ResumeSans-Bold',fontSize=23,leading=27,spaceAfter=5),
  'role':ParagraphStyle('role',fontName='ResumeSans-Bold',fontSize=11,leading=14,spaceAfter=5),
@@ -27,11 +31,15 @@ def bullet(text):p('- '+text,'bullet')
 def section(text):p(text,'section')
 def link(url,label=None):return '<link href="'+url+'" color="#153c58">'+(label or url.replace('https://',''))+'</link>'
 p('KUSHAGRA PANDEY','name')
-p('Infrastructure Support | Azure Certified | Cloud &amp; DevOps Foundations','role')
+p({'general':'Infrastructure Support | Azure Certified | Cloud &amp; DevOps Foundations','cloud-support':'Cloud &amp; Infrastructure Support | Azure AZ-104 / AZ-900','junior-devops':'Junior DevOps Candidate | Linux, Automation &amp; Containers'}[target],'role')
 p(link('mailto:kushagrapandey102@gmail.com','kushagrapandey102@gmail.com')+' | India','contact')
 p(link('https://kushagra-portfolio-plum.vercel.app/')+' | '+link('https://github.com/kushagrapandey-cmd'),'contact')
 p(link('https://www.linkedin.com/in/kushagra-pandey-353b71175'),'contact')
 section('PROFESSIONAL SUMMARY')
+if target=='cloud-support':
+ p('Target: Cloud / Infrastructure Support. Brings enterprise incident triage, server diagnostics, monitoring, escalation and ICC shift leadership, supported by Azure Administrator and Fundamentals certifications.')
+elif target=='junior-devops':
+ p('Target: Junior DevOps. Brings production support discipline and project experience with Bash/Python automation, Docker, Kubernetes probes, recovery drills and GitHub Actions validation. Container and CI experience comes from reproducible labs.')
 p('Infrastructure support professional at HCLTech with experience in Linux and Windows server troubleshooting, infrastructure monitoring, incident coordination and ICC shift leadership. Microsoft Azure AZ-104 and AZ-900 certified, with hands-on project foundations in Bash, Python, Docker, Kubernetes and GitHub Actions. Combines enterprise operations experience with cloud recovery labs and deployed full-stack applications; targeting cloud support, Azure administration and junior Cloud/DevOps roles.')
 section('TECHNICAL SKILLS')
 p('<b>Infrastructure operations:</b> Linux, Windows Server, service-status checks, CPU/memory/disk diagnostics, log analysis, SSH, RDP, incident triage, escalation, SLA-aware support, SOPs and shift handovers.')

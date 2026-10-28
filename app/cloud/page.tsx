@@ -7,13 +7,13 @@ import { StatusBadge } from "@/components/status-badge";
 import { certifications, focusAreas } from "@/data/profile";
 import { linuxLearning } from "@/data/projects";
 
-export const metadata: Metadata = { title: "Cloud Journey" };
+export const metadata: Metadata = { title: "Cloud & DevOps" };
 
 export default function CloudPage() {
   return (
     <main>
       <PageHero
-        eyebrow="Cloud journey"
+        eyebrow="Cloud & DevOps"
         title="Cloud foundations, applied to real operational problems."
         intro="Azure-certified infrastructure professional with practical foundations in Linux, Bash, Python, Docker, Kubernetes and CI. CloudOps Sentinel connects those skills through diagnostics and recovery exercises."
         aside={<><StatusBadge status="project" /><p className="aside-stat">Hands-on</p><p>Cloud / DevOps foundations</p></>}
@@ -55,6 +55,9 @@ export default function CloudPage() {
             <ul className="clean-list">{focusAreas.learning.map((item) => <li key={item}>{item}</li>)}</ul>
           </article>
         </div>
+      </section>
+      <section className="section-block">
+        <div className="shell"><p className="eyebrow">Current learning</p><h2 className="medium-heading">Next depth: Azure operations and infrastructure as code</h2><p className="case-copy">Current priorities are an isolated Azure deployment, repeatable infrastructure provisioning, and historical metrics with actionable alerts. These are next steps; completed Linux, Docker, Kubernetes and CI exercises are documented in the lab below.</p></div>
       </section>
       <section className="section-block section-contrast">
         <div className="shell lab-feature">

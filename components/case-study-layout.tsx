@@ -58,6 +58,27 @@ export function CaseStudyLayout({ project }: CaseStudyLayoutProps) {
           </ul>
         </section>
 
+        {project.slug === "cloudops-sentinel" && <section className="case-section">
+          <p className="eyebrow">Recovery walkthrough / Reproducible local lab</p>
+          <h2>Readiness failure: isolate, recover, verify</h2>
+          <p className="case-copy">The repository drill deliberately creates /tmp/sentinel-not-ready in one container. Its readiness check fails while the process remains alive. Kubernetes marks that pod unready; the other replica remains available. This is a controlled kind exercise, separate from the browser simulator.</p>
+          <ol className="evidence-list">
+            <li><strong>Observe:</strong> inspect pod readiness, events, logs and Service endpoints before restarting anything. A running process alone does not prove it can serve traffic.</li>
+            <li><strong>Root cause:</strong> the injected marker makes the readiness endpoint fail. Liveness and readiness answer different questions; restarting the deployment would hide the diagnostic signal.</li>
+            <li><strong>Recover:</strong> remove the injected marker from the affected container. The readiness probe then allows that replica to rejoin service traffic.</li>
+            <li><strong>Verify:</strong> wait for Ready=true, inspect EndpointSlices and check rollout status. The script also exercises pod replacement and rollback from a deliberately missing image.</li>
+          </ol>
+          <div className="terminal-note"><code>Repository diagnostic commands</code><pre style={{whiteSpace:"pre-wrap", overflowWrap:"anywhere"}}>{`# Use the isolated kind-sentinel context
+kubectl --context kind-sentinel -n sentinel get pods,svc,endpointslices -o wide
+kubectl --context kind-sentinel -n sentinel get events --sort-by=.lastTimestamp
+kubectl --context kind-sentinel -n sentinel logs -l app=sentinel --tail=50 --prefix=true
+# After removing the injected marker, verify all replicas
+kubectl --context kind-sentinel -n sentinel wait --for=condition=Ready pod -l app=sentinel --timeout=120s
+kubectl --context kind-sentinel -n sentinel rollout status deployment/sentinel`}</pre></div>
+          <p className="case-copy">Reproduce with scripts/local-cluster.sh, scripts/diagnose.sh and scripts/drills.sh from the project directory. The drill enforces the kind-sentinel context. Evidence is the script assertions and CI logs, rather than an invented uptime or recovery-time metric.</p>
+          <ExternalLink className="text-link" href="https://github.com/kushagrapandey-cmd/Devops-Learning/blob/main/projects/cloudops-sentinel/scripts/drills.sh">Read the recovery drill source</ExternalLink>
+        </section>}
+
         <section className="case-section split-section limitation-panel">
           <div>
             <p className="eyebrow">04 / Current limitations</p>

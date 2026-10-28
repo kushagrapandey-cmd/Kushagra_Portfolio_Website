@@ -18,7 +18,7 @@ for (const dir of sourceDirs) walk(path.join(root, dir));
 function routeExists(route) {
   if (route === "/") return fs.existsSync(path.join(root, "app/page.tsx"));
   const clean = route.replace(/^\//, "").replace(/\/$/, "");
-  return fs.existsSync(path.join(root, "app", clean, "page.tsx"));
+  return fs.existsSync(path.join(root, "app", clean, "page.tsx")) || fs.statSync(path.join(root, "public", clean), { throwIfNoEntry: false })?.isFile() === true;
 }
 
 const missing = new Set();
