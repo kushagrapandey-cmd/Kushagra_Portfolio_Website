@@ -27,7 +27,7 @@ No use-cache functions, Server Actions, ImageResponse, remote image configuratio
 
 ## Residual limits
 
-The delivery budget is local to each warm serverless instance and resets on cold starts. A shared edge/WAF rate limit or verified bot challenge is still needed for strong distributed spam protection. Origin headers can be forged by non-browser clients. CSP permits inline scripts/styles for the current static Next.js output; it provides framing/resource restrictions, not a strict nonce-based XSS guarantee. A strict nonce policy would need a deliberate rendering change. Platform account access, WAF configuration, historical compromise and external project security were outside this portfolio review.
+The delivery budget is local to each warm serverless instance and resets on cold starts. On 29 October a targeted Vercel WAF rule was published for the ^/api/contact/?$ path expression: fixed-window 5 requests per 60 seconds per IP, returning 429. This shares counters across application instances within a Vercel region; IP rotation, multiple regions and fixed-window boundaries remain limitations. Origin headers can be forged by non-browser clients. CSP permits inline scripts/styles for the current static Next.js output; it provides framing/resource restrictions, not a strict nonce-based XSS guarantee. A strict nonce policy would need a deliberate rendering change. Platform account access, WAF configuration, historical compromise and external project security were outside this portfolio review.
 
 ## Advisory references
 

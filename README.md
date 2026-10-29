@@ -85,3 +85,10 @@ The app is configured as a normal Next.js deployment so Vercel can run the `/api
 - A subtle cursor trail runs only for fine mouse pointers, is capped at 24 particles and respects reduced motion. The floating Cursor trail switch disables it. There is no click audio or click ripple.
 - Both themes use quiet gradients. Project cards and case studies include optimized screenshots captured from the live demos on 28 October 2026.
 - Interaction regression coverage is in `tests/interactions.spec.ts` for desktop and mobile Chromium.
+
+
+### Contact spam protection (29 October 2026)
+
+The live Vercel WAF rule `Portfolio contact spam limit` limits the `/api/contact` and `/api/contact/` endpoints to 5 requests per IP per 60-second fixed window and returns HTTP 429 above the threshold. It runs before the contact function, shares counters across function instances within each region, and leaves page browsing and PDF downloads outside its scope. Next.js redirects `/api/contact` to the canonical trailing-slash route.
+
+This rule is managed in Vercel Firewall, not automatically provisioned by a git deployment. Rule ID: `rule_portfolio_contact_spam_limit_tfhkGE`. Keep it enabled when redeploying. The existing honeypot, bounded body parsing, origin checks, provider idempotency and per-instance delivery budget remain defense in depth. The UI explains 429 responses (including HTML edge responses), preserves drafts and offers the direct email fallback. Per-IP limits are not a guarantee against rotating proxies or distributed attacks.

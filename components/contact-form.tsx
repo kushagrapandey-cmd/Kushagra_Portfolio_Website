@@ -72,7 +72,9 @@ export function ContactForm() {
         setSubmitState("error");
         setFallbackHref(mailtoFallback);
         setStatusMessage(
-          result?.code === "EMAIL_NOT_CONFIGURED"
+          response.status === 429
+            ? "Too many messages. Please wait a minute and try again, or use the email link below. Your draft is preserved."
+            : result?.code === "EMAIL_NOT_CONFIGURED"
             ? "Message delivery is temporarily unavailable. Open a pre-filled email below to get in touch."
             : result?.message || "Message could not be sent right now.",
         );

@@ -320,3 +320,16 @@ test("contact rejects cross-site, non-JSON and oversized bodies before delivery"
   const injection = await request.post("/api/contact", { data: { name: "Visitor\r\nInjected", email: "test@example.com", message: "Hello" } });
   expect(injection.status()).toBe(400);
 });
+
+
+test("contact preserves drafts and explains edge rate limits with non-JSON responses", async ({ page }) => {
+  await page.route("**/api/contact", async route => route.fulfill({ status: 429, contentType: "text/html", body: "Too Many Requests" }));
+  await page.goto("/");
+  await page.getByLabel("Name", { exact: true }).fill("Visitor");
+  await page.getByLabel("Email address").fill("visitor@example.com");
+  await page.getByLabel("Short message").fill("Keep my message");
+  await page.getByRole("button", { name: "Send message" }).click();
+  await expect(page.locator(".contact-form").getByRole("alert")).toContainText("wait a minute");
+  await expect(page.getByLabel("Short message")).toHaveValue("Keep my message");
+  await expect(page.getByRole("link", { name: "Open email app" })).toBeVisible();
+});
